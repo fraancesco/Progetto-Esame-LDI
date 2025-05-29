@@ -1,4 +1,7 @@
-#include <stdio.h>
+#ifndef VIDEOGAME_H
+#define VIDEOGAME_H
+
+#define MAX_STRING_SIZE 100
 
 typedef struct {
     int id;
@@ -9,7 +12,7 @@ typedef struct {
     char developer[100];
     char description[100];
     char genre[100];
-}Videogame;
+} Videogame;
 
 void add_videogame();
 void view_videogame(int id);
@@ -17,3 +20,5 @@ void edit_videogame(int id);
 void delete_videogame(int id);
 
 void sell_videogame(int id);
+
+#endif

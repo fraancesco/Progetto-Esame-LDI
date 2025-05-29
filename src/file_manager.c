@@ -3,7 +3,7 @@
 #include "file_manager.h"
 
 int write_file(Videogame game) {
-    FILE *file = fopen("data/videogiochi.bin", "wb");
+    FILE *file = fopen("../data/videogiochi.bin", "ab");
     
     if (file == NULL) {
         printf("Errore nella scrittura del file.\n");
