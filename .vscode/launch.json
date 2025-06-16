@@ -8,10 +8,10 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/franc/Desktop/Francesco Pice - Francesco Sblendorio",
-      "program": "c:/Users/franc/Desktop/Francesco Pice - Francesco Sblendorio/build/Debug/outDebug",
+      "cwd": "c:/Users/franc/Desktop/Francesco Pice - Francesco Sblendorio/src",
+      "program": "c:/Users/franc/Desktop/Francesco Pice - Francesco Sblendorio/src/catalogo.exe",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "c:/MinGW/bin/gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

@@ -16,7 +16,7 @@ typedef struct {
 
 void add_videogame();
 void view_videogame(int id);
-void edit_videogame(int id);
+void edit_videogame();
 void delete_videogame(int id);
 
 void sell_videogame(int id);
