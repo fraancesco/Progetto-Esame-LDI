@@ -6,17 +6,20 @@ void admin(){
     int op;
     do{
         printf("Menu amministratore:\n");
-        printf("1. Gestione videogiochi\n");
-        printf("2. Gestione recensioni\n");
-        printf("3. Visualizza videogiochi\n");
-        printf("4. Torna al menu principale\n");
+        printf("1. Aggiungi videogioco\n");
+        printf("2. Gestione videogiochi\n");
+        printf("3. Gestione recensioni\n");
+        printf("4. Visualizza videogiochi\n");
+        printf("5. Torna al menu principale\n");
         do {
             scanf("%d", &op);
-            if (op < 1 || op > 4) {
+            if (op < 1 || op > 5) {
                 printf("Opzione non valida. Riprova.\n");
             }
         }while (op < 1 || op > 4);
-        if(op == 1){
+        if(op == 1){ 
+            add_videogame();
+        } else if(op == 2){
             crud_menu();
         } else if(op == 2){
             //admin_review();
@@ -30,20 +33,17 @@ void crud_menu(){
     int op;
     do{
         printf("Cosa vuoi fare:\n");
-        printf("1. Aggiungi videogioco\n");
-        printf("2. Modifica videogioco\n");
-        printf("3. Elimina videogioco\n");
-        printf("4. Cerca videogioco\n");
-        printf("5. Torna al menu admin\n");
+        printf("1. Modifica videogioco\n");
+        printf("2. Elimina videogioco\n");
+        printf("3. Cerca videogioco\n");
+        printf("4. Torna al menu admin\n");
         do {
             scanf("%d", &op);
-            if (op < 1 || op > 5) {
+            if (op < 1 || op > 4) {
                 printf("Opzione non valida. Riprova.\n");
             }
         }while (op < 1 || op > 5);
-        if(op == 1){
-            add_videogame();
-        } else if(op == 2){
+        if(op == 2){
             //edit_videogame();
         } else if(op == 3){
             //delete_videogame();
