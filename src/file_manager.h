@@ -5,7 +5,7 @@
 
 int write_file(Videogame game);
 int last_id();
-int read_all_videogames(Videogame all_games[]);
-void edit_file(Videogame games[]);
+int read_all_videogames(Videogame all_games[], int *games_count);
+void edit_file(Videogame games[], int games_count);
 
 #endif

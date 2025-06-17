@@ -5,11 +5,12 @@
 void admin(){
     int op;
     do{
-        printf("Menu amministratore:\n");
+        printf("--------Menu amministratore--------\n");
         printf("1. Gestione videogiochi\n");
         printf("2. Gestione recensioni\n");
         printf("3. Visualizza videogiochi\n");
         printf("4. Torna al menu principale\n");
+        printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
             if (op < 1 || op > 4) {
@@ -29,12 +30,13 @@ void admin(){
 void crud_menu(){
     int op;
     do{
-        printf("Cosa vuoi fare:\n");
+        printf("--------Opzioni--------\n");
         printf("1. Aggiungi videogioco\n");
         printf("2. Modifica videogioco\n");
         printf("3. Elimina videogioco\n");
         printf("4. Cerca videogioco\n");
         printf("5. Torna al menu admin\n");
+        printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
             if (op < 1 || op > 5) {
@@ -46,9 +48,9 @@ void crud_menu(){
         } else if(op == 2){
             edit_videogame();
         } else if(op == 3){
-            //delete_videogame();
+            delete_videogame();
         } else if(op == 4){
-            //search_videogame();
+            search_videogame();
         }
     }while(op != 5);
 }
@@ -56,11 +58,12 @@ void crud_menu(){
 void user(){
     int op;
     do{
-        printf("Menu visitatore:\n");
+        printf("--------Menu visitatore--------\n");
         printf("1. Visualizza videogioco\n");
         printf("2. Aggiungi recensione\n");
         printf("3. Acquista videogioco\n");
         printf("4. Torna al menu principale\n");
+        printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
             if (op < 1 || op > 4) {
@@ -80,11 +83,12 @@ void user(){
 void start(){
     int op;
     do{
-        printf("Benvenuto nel Catalogo di Videogiochi!\n");
+        printf("========Benvenuto nel Catalogo di Videogiochi========\n");
         printf("Seleziona una opzione:\n");
         printf("1. Admin\n");
         printf("2. Utente\n");
         printf("3. Esci\n");
+        printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
             if (op < 1 || op > 3) {
