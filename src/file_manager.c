@@ -21,8 +21,7 @@ int last_id() {
     FILE *file = fopen(PATH_FILE, "rb");
 
     if (file == NULL) {
-        printf("Errore nella lettura del file.\n");
-        return -1;
+        return ;
     }
 
     fseek(file, 0, SEEK_END);
