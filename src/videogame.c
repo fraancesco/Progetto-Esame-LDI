@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
-#include <math.h>
 #include <stdlib.h>
 #include "videogame.h"
 #include "file_manager.h"
@@ -219,7 +219,7 @@ void delete_videogame(){
 }
 
 void search_videogame(){
-    char title[MAX_STRING_SIZE];
+    char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE];
     int c, games_count, found = 0;
     Videogame all_games[MAX];
 
@@ -228,27 +228,38 @@ void search_videogame(){
     do {
         printf("Inserisci il titolo del videogioco da cercare: ");
         fgets(title, MAX_STRING_SIZE, stdin);
-        title[strcspn(title, "\n")] = '\0'; // Elimina newline
+        title[strlen(title) - 1] = '\0';
         if (strlen(title) == 0) {
             printf("Inserire un titolo. Riprova.\n");
         }
     } while (strlen(title) == 0);
 
     if (read_all_videogames(all_games, &games_count) == 0) {
+
+        for (int i = 0; i < strlen(title); i++){
+            title[i] = tolower(title[i]);
+        }
+
         for (int i = 0; i < games_count; i++) {
-            if (strcmp(all_games[i].title, title) == 0) {
-                found = 1;
-                printf("--------Videogioco trovato con successo--------\n");
+
+            memset(title_to_confront, 0, sizeof(title_to_confront));
+
+            for (int j = 0; j < strlen(all_games[i].title); j++){
+            title_to_confront[j] = tolower(all_games[i].title[j]);
+            }
+            if (strstr(title_to_confront, title) != NULL) {
+                if (found == 0){
+                    printf("--------Videogiochi trovati--------\n");
+                    found = 1;
+                }
                 printf("Titolo: %s\n", all_games[i].title);
                 printf("Editore: %s\n", all_games[i].editor);
                 printf("Sviluppatore: %s\n", all_games[i].developer);
                 printf("Descrizione: %s\n", all_games[i].description);
                 printf("Anno di pubblicazione: %d\n", all_games[i].year);
                 printf("Genere: %s\n", all_games[i].genre);
-                break;
             }
         }
-
         if (!found) {
             printf("Videogioco non trovato.\n");
         }

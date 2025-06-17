@@ -8,11 +8,11 @@ typedef struct {
     int id;
     int year;
     int copies_sold;
-    char title[100];
-    char editor[100];
-    char developer[100];
-    char description[100];
-    char genre[100];
+    char title[MAX_STRING_SIZE];
+    char editor[MAX_STRING_SIZE];
+    char developer[MAX_STRING_SIZE];
+    char description[MAX_STRING_SIZE];
+    char genre[MAX_STRING_SIZE];
 } Videogame;
 
 void add_videogame();
