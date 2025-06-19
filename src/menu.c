@@ -8,7 +8,7 @@ void admin(){
         printf("--------Menu amministratore--------\n");
         printf("1. Gestione videogiochi\n");
         printf("2. Gestione recensioni\n");
-        printf("3. Visualizza videogiochi\n");
+        printf("3. Visualizza statistiche videogiochi\n");
         printf("4. Torna al menu principale\n");
         printf("Scegli una opzione: ");
         do {
@@ -34,25 +34,22 @@ void crud_menu(){
         printf("1. Aggiungi videogioco\n");
         printf("2. Modifica videogioco\n");
         printf("3. Elimina videogioco\n");
-        printf("4. Cerca videogioco\n");
-        printf("5. Torna al menu admin\n");
+        printf("4. Torna al menu admin\n");
         printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
-            if (op < 1 || op > 5) {
+            if (op < 1 || op > 4) {
                 printf("Opzione non valida. Riprova.\n");
             }
-        }while (op < 1 || op > 5);
+        }while (op < 1 || op > 4);
         if(op == 1){
             add_videogame();
         } else if(op == 2){
             edit_videogame();
         } else if(op == 3){
             delete_videogame();
-        } else if(op == 4){
-            search_videogame();
         }
-    }while(op != 5);
+    }while(op != 4);
 }
 
 void user(){

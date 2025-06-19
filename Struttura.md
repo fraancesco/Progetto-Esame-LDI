@@ -3,7 +3,6 @@
 ## 1. **File di Dati**
    - `videogiochi.bin`: File binario contenente i record dei videogiochi, ognuno con titolo, editore, sviluppatore, descrizione, anno di pubblicazione e generi.
    - `recensioni.bin`: File binario contenente le recensioni associate ai videogiochi, con giudizio (0-5), descrizione opzionale e riferimento al videogioco tramite ID.
-   - `log.txt`: File di log contenente tutte le operazioni eseguite dall'applicazione.
 
 ## 2. Strutture Principali
 

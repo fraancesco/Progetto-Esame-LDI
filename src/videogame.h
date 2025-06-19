@@ -16,11 +16,10 @@ typedef struct {
 } Videogame;
 
 void add_videogame();
-void search_videogame();
 int view_all_videogame(Videogame all_games[], int *max_id, int *games_count);
 void edit_videogame();
 void delete_videogame();
+// void search_videogame();
 
-void sell_videogame(int id);
 
 #endif
