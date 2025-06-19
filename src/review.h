@@ -7,12 +7,13 @@ typedef struct review
 {
     int id;
     int videogame_id;
-    int value;
+    double value;
     char comment[MAX_COMMENT_SIZE];
 } Review;
 
 
 void add_review(int videogame_id);
-void view_review();
+void view_reviews(int videogame_id);
+void delete_review(int videogame_id);
 
 #endif

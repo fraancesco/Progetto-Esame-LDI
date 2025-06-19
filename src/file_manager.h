@@ -1,6 +1,9 @@
 #ifndef FILE_MANAGER_H
 #define FILE_MANAGER_H
 
+#include "videogame.h"
+#include "review.h"
+
 #define PATH_VIDEOGAME_FILE "../data/videogiochi.bin"
 #define PATH_REVIEW_FILE "../data/recensioni.bin"
 
@@ -11,6 +14,7 @@ void edit_videogame_file(Videogame games[], int games_count);
 
 int last_review_id();
 int write_review_file(Review review);
+int read_reviews(Review reviews[], int videogame_id, int *reviews_count);
 
 
 #endif

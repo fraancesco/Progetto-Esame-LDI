@@ -19,7 +19,11 @@ void add_videogame();
 int view_all_videogame(Videogame all_games[], int *max_id, int *games_count);
 void edit_videogame();
 void delete_videogame();
-// void search_videogame();
+void search_videogame();
+
+void buy_videogame(int videogame_id);
+
+void view_videogame();
 
 
 #endif

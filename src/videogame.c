@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "videogame.h"
 #include "file_manager.h"
+#include "review.h"
 
 void add_videogame(){
     Videogame new_game;
@@ -107,7 +108,7 @@ void add_videogame(){
     }while(strlen(new_game.genre) == 0 || too_long);
     
     new_game.copies_sold = 0;
-    new_game.id = last_id() + 1;
+    new_game.id = last_videogame_id() + 1;
 
     write_videogame_file(new_game);
 
@@ -259,9 +260,10 @@ void edit_videogame(){
     }
 }
 
+// TODO: implementare cancellazione delle recensioni
 void delete_videogame(){
     Videogame all_games[MAX_ARRAY_SIZE];
-    int id, games_count, max_id, found = 0;
+    int id, games_count, max_id, found = 0, index_to_delete = -1;;
     
     if(view_all_videogame(all_games, &max_id, &games_count) != -1){
        
@@ -285,7 +287,6 @@ void delete_videogame(){
         } while(id == -1);
 
         // Trova l’indice da eliminare
-        int index_to_delete = -1;
         for (int i = 0; i < games_count; i++) {
             if (all_games[i].id == id) {
                 index_to_delete = i;
@@ -299,6 +300,8 @@ void delete_videogame(){
                 all_games[i] = all_games[i + 1];
             }
 
+            delete_review(all_games[index_to_delete].id);
+
             // Riscrivi il file con uno in meno
             edit_videogame_file(all_games, games_count - 1);
             printf("Videogioco eliminato con successo.\n");
@@ -308,60 +311,166 @@ void delete_videogame(){
     }
 }
 
-// void search_videogame(){
-//     char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE];
-//     int c, games_count, too_long, found = 0;
-//     Videogame all_games[MAX_ARRAY_SIZE];
+// TODO: implementare la ricerca per editore, sviluppatore, genere e anno di pubblicazione
+void search_videogame(){
+    char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE], option;
+    int c, games_count, too_long, found = 0;
+    Videogame all_games[MAX_ARRAY_SIZE];
 
-//     while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
+    while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
 
-//     do {
-//         printf("Inserisci il titolo del videogioco da cercare: ");
-//         fgets(title, MAX_STRING_SIZE, stdin);
-//         if(strlen(title) > 0 && title[strlen(title) - 1] == '\n'){
-//             title[strlen(title) - 1] = '\0';
-//         } else{
-//             while ((c = getchar()) != '\n' && c != EOF);
-//             too_long = 1;
-//         }
-//         if (strlen(title) == 0) {
-//             printf("Inserire un titolo. Riprova.\n");
-//         }
-//         if(too_long){
-//             printf("Titolo troppo lungo. Riprova.\n");
-//         }
-//     } while (strlen(title) == 0 || too_long);
+    do {
+        too_long = 0;
+        printf("Inserisci il titolo del videogioco da cercare: ");
+        fgets(title, MAX_STRING_SIZE, stdin);
+        if(strlen(title) > 0 && title[strlen(title) - 1] == '\n'){
+            title[strlen(title) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
+        if (strlen(title) == 0) {
+            printf("Inserire un titolo. Riprova.\n");
+        }
+        if(too_long){
+            printf("Titolo troppo lungo. Riprova.\n");
+        }
+    } while (strlen(title) == 0 || too_long);
 
-//     if (read_all_videogames(all_games, &games_count) == 0) {
+    if (read_all_videogames(all_games, &games_count) == 0) {
 
-//         for (int i = 0; i < strlen(title); i++){
-//             title[i] = tolower(title[i]);
-//         }
+        for (int i = 0; i < strlen(title); i++){
+            title[i] = tolower(title[i]);
+        }
 
-//         for (int i = 0; i < games_count; i++) {
+        for (int i = 0; i < games_count; i++) {
 
-//             memset(title_to_confront, 0, sizeof(title_to_confront)); // svuoto la stringa
+            memset(title_to_confront, 0, sizeof(title_to_confront)); // svuoto la stringa
 
-//             for (int j = 0; j < strlen(all_games[i].title); j++){
-//             title_to_confront[j] = tolower(all_games[i].title[j]);
-//             }
-//             if (strstr(title_to_confront, title) != NULL) {
-//                 if (found == 0){
-//                     printf("--------Videogiochi trovati--------\n");
-//                     found = 1;
-//                 }
-//                 printf("Titolo: %s\n", all_games[i].title);
-//                 printf("Editore: %s\n", all_games[i].editor);
-//                 printf("Sviluppatore: %s\n", all_games[i].developer);
-//                 printf("Descrizione: %s\n", all_games[i].description);
-//                 printf("Anno di pubblicazione: %d\n", all_games[i].year);
-//                 printf("Genere: %s\n", all_games[i].genre);
-//             }
-//         }
-//         if (!found) {
-//             printf("Videogioco non trovato.\n");
-//         }
-//     } else {
-//         printf("Errore nella lettura dei videogiochi.\n");
-//     }
-// }
+            for (int j = 0; j < strlen(all_games[i].title); j++){
+            title_to_confront[j] = tolower(all_games[i].title[j]);
+            }
+            if (strstr(title_to_confront, title) != NULL) {
+                if (found == 0){
+                    printf("--------Videogiochi trovati--------\n");
+                    found = 1;
+                }
+                printf("Titolo: %s\n", all_games[i].title);
+                printf("Editore: %s\n", all_games[i].editor);
+                printf("Sviluppatore: %s\n", all_games[i].developer);
+                printf("Descrizione: %s\n", all_games[i].description);
+                printf("Anno di pubblicazione: %d\n", all_games[i].year);
+                printf("Genere: %s\n", all_games[i].genre);
+                printf("Copie vendute: %d\n", all_games[i].copies_sold);
+                view_reviews(all_games[i].id);
+                printf("-----------------------------------------\n");
+                do{
+                    printf("Desidere comprare il videogioco (Y/N): ");
+                    scanf(" %c", &option);
+                    if(option == 'y' || option == 'Y'){
+                        buy_videogame(all_games[i].id);
+                    }
+                    if(option != 'y' && option != 'Y' && option != 'n' && option != 'N'){
+                        printf("Opzione non valida. Riprova.\n");
+                    }
+                }while(option != 'y' && option != 'Y' && option != 'n' && option != 'N');
+                printf("-----------------------------------------\n");
+                do{
+                    printf("Vuoi recensire il videogioco (Y/N): ");
+                    scanf(" %c", &option);
+                    if(option == 'y' || option == 'Y'){
+                        add_review(all_games[i].id);
+                    }
+                    if(option != 'y' && option != 'Y' && option != 'n' && option != 'N'){
+                        printf("Opzione non valida. Riprova.\n");
+                    }
+                }while(option != 'y' && option != 'Y' && option != 'n' && option != 'N');
+                printf("-----------------------------------------\n");
+            }
+        }
+        if (!found) {
+            printf("Videogioco non trovato.\n");
+        }
+    } else {
+        printf("Errore nella lettura dei videogiochi.\n");
+    }
+}
+
+void buy_videogame(int videogame_id){
+    int c, games_count;
+    Videogame all_games[MAX_ARRAY_SIZE];
+
+    if(read_all_videogames(all_games, &games_count) == 0){
+        for(int i = 0; i < games_count; i++){
+            if(all_games[i].id == videogame_id){
+                all_games[i].copies_sold++;
+                printf("Videogioco acquistato con successo.\n");
+            }
+        }
+        edit_videogame_file(all_games, games_count);
+    }else{
+        printf("Errore nella lettura dei videogiochi.\n");
+    }
+}
+
+// TODO: implementare la ricerca per editore, sviluppatore, genere e anno di pubblicazione
+void view_videogame(){
+    char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE], option;
+    int c, games_count, too_long, found = 0;
+    Videogame all_games[MAX_ARRAY_SIZE];
+
+    while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
+
+    do {
+        too_long = 0;
+        printf("Inserisci il titolo del videogioco da cercare: ");
+        fgets(title, MAX_STRING_SIZE, stdin);
+        if(strlen(title) > 0 && title[strlen(title) - 1] == '\n'){
+            title[strlen(title) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
+        if (strlen(title) == 0) {
+            printf("Inserire un titolo. Riprova.\n");
+        }
+        if(too_long){
+            printf("Titolo troppo lungo. Riprova.\n");
+        }
+    } while (strlen(title) == 0 || too_long);
+
+    if (read_all_videogames(all_games, &games_count) == 0) {
+
+        for (int i = 0; i < strlen(title); i++){
+            title[i] = tolower(title[i]);
+        }
+
+        for (int i = 0; i < games_count; i++) {
+
+            memset(title_to_confront, 0, sizeof(title_to_confront)); // svuoto la stringa
+
+            for (int j = 0; j < strlen(all_games[i].title); j++){
+            title_to_confront[j] = tolower(all_games[i].title[j]);
+            }
+            if (strstr(title_to_confront, title) != NULL) {
+                if (found == 0){
+                    printf("--------Videogiochi trovati--------\n");
+                    found = 1;
+                }
+                printf("Titolo: %s\n", all_games[i].title);
+                printf("Editore: %s\n", all_games[i].editor);
+                printf("Sviluppatore: %s\n", all_games[i].developer);
+                printf("Descrizione: %s\n", all_games[i].description);
+                printf("Anno di pubblicazione: %d\n", all_games[i].year);
+                printf("Genere: %s\n", all_games[i].genre);
+                printf("Copie vendute: %d\n", all_games[i].copies_sold);
+                view_reviews(all_games[i].id);
+            }
+        }
+        if (!found) {
+            printf("Videogioco non trovato.\n");
+        }
+    } else {
+        printf("Errore nella lettura dei videogiochi.\n");
+    }
+}

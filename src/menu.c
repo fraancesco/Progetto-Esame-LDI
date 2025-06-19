@@ -2,13 +2,13 @@
 #include "menu.h"
 #include "videogame.h"
 
-void admin(){
+void stats(){
     int op;
     do{
-        printf("--------Menu amministratore--------\n");
-        printf("1. Gestione videogiochi\n");
-        printf("2. Gestione recensioni\n");
-        printf("3. Visualizza statistiche videogiochi\n");
+        printf("--------Gestione statistiche--------\n");
+        printf("1. Ordine per Recensioni\n");
+        printf("2. Best seller\n");
+        printf("3. Dati singolo videogioco\n");
         printf("4. Torna al menu principale\n");
         printf("Scegli una opzione: ");
         do {
@@ -18,13 +18,35 @@ void admin(){
             }
         }while (op < 1 || op > 4);
         if(op == 1){
-            crud_menu();
+            //review_order();
         } else if(op == 2){
-            //admin_review();
+            //bestseller_order();
         } else if(op == 3){
-            //view_videogame();
+            view_videogame();
         }
     }while(op != 4);
+}
+
+void admin(){
+    int op;
+    do{
+        printf("--------Menu amministratore--------\n");
+        printf("1. Gestione videogiochi\n");
+        printf("2. Visualizza statistiche\n");
+        printf("3. Torna al menu principale\n");
+        printf("Scegli una opzione: ");
+        do {
+            scanf("%d", &op);
+            if (op < 1 || op > 3) {
+                printf("Opzione non valida. Riprova.\n");
+            }
+        }while (op < 1 || op > 3);
+        if(op == 1){
+            crud_menu();
+        } else if(op == 2){
+            stats();
+        }
+    }while(op != 3);
 }
 
 void crud_menu(){
@@ -57,24 +79,21 @@ void user(){
     do{
         printf("--------Menu visitatore--------\n");
         printf("1. Visualizza videogioco\n");
-        printf("2. Aggiungi recensione\n");
-        printf("3. Acquista videogioco\n");
-        printf("4. Torna al menu principale\n");
+        printf("2. Visualizza i videogiochi del catalogo\n");
+        printf("3. Torna al menu principale\n");
         printf("Scegli una opzione: ");
         do {
             scanf("%d", &op);
-            if (op < 1 || op > 4) {
+            if (op < 1 || op > 3) {
                 printf("Opzione non valida. Riprova.\n");
             }
-        }while (op < 1 || op > 4);
+        }while (op < 1 || op > 3);
         if(op == 1){
-            //view_videogame();
+            search_videogame();
         } else if(op == 2){
             //add_review();
-        } else if(op == 3){
-            //buy_videogame();
         }
-    }while (op != 4);
+    }while (op != 3);
 }
 
 void start(){
