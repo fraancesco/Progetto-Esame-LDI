@@ -7,43 +7,79 @@
 
 void add_videogame(){
     Videogame new_game;
-    int c;
+    int c, too_long;
 
     while ((c = getchar()) != '\n' && c != EOF); // svuota il buffer
 
     printf("--------Aggiungi videogioco--------:\n");
     do{
+        too_long = 0;
         printf("Titolo: ");
         fgets(new_game.title, MAX_STRING_SIZE, stdin);
-        new_game.title[strlen(new_game.title) - 1] = '\0'; // rimuove il ritorno a capo preso come carattere
+        if (strlen(new_game.title) > 0 && new_game.title[strlen(new_game.title) - 1] == '\n'){
+            new_game.title[strlen(new_game.title) - 1] = '\0'; // rimuove il ritorno a capo preso come carattere nel caso in cui ci sia
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF); // stringa troppo lunga e quindi ritorno a capo non presente, pulizia del buffer
+            too_long = 1;
+        }
         if(strlen(new_game.title) == 0){
             printf("Inserire un titolo. Riprova.\n");
         }
-    }while(strlen(new_game.title) == 0);
+        if(too_long){
+            printf("Titolo troppo lungo. Riprova.\n");
+        }
+    }while(strlen(new_game.title) == 0 || too_long);
     do{
+        too_long = 0;
         printf("Editore: ");
         fgets(new_game.editor, MAX_STRING_SIZE, stdin);
-        new_game.editor[strlen(new_game.editor) - 1] = '\0'; 
+        if(strlen(new_game.editor) > 0 && new_game.editor[strlen(new_game.editor) - 1] == '\n'){
+            new_game.editor[strlen(new_game.editor) - 1] = '\0'; 
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
         if(strlen(new_game.editor) == 0){
             printf("Inserire un editore. Riprova.\n");
         }
-    }while(strlen(new_game.editor) == 0);
+        if(too_long){
+            printf("Nome editore troppo lungo. Riprova.\n");
+        }
+    }while(strlen(new_game.editor) == 0 || too_long);
     do{
+        too_long = 0;
         printf("Sviluppatore: ");
         fgets(new_game.developer, MAX_STRING_SIZE, stdin);
-        new_game.developer[strlen(new_game.developer) - 1] = '\0';
+        if(strlen(new_game.developer) > 0 && new_game.developer[strlen(new_game.developer) - 1] == '\n'){
+            new_game.developer[strlen(new_game.developer) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
         if(strlen(new_game.developer) == 0){
             printf("Inserire un sviluppatore. Riprova.\n");
         }
-    }while(strlen(new_game.developer) == 0);
+        if(too_long){
+            printf("Nome sviluppatore troppo lungo. Riprova.\n");
+        }
+    }while(strlen(new_game.developer) == 0 || too_long);
     do{
+        too_long = 0;
         printf("Descrizione: ");
         fgets(new_game.description, MAX_STRING_SIZE, stdin);
-        new_game.description[strlen(new_game.description) - 1] = '\0';
+        if(strlen(new_game.description) > 0 && new_game.description[strlen(new_game.description) - 1] == '\n'){
+            new_game.description[strlen(new_game.description) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
         if(strlen(new_game.description) == 0){    
             printf("Inserire una descrizione. Riprova.\n");
         }
-    }while(strlen(new_game.description) == 0);
+        if(too_long){    
+            printf("Descrizione troppo lunga. Riprova.\n");
+        }
+    }while(strlen(new_game.description) == 0 || too_long);
     do{
         printf("Anno di pubblicazione: ");
         scanf("%d", &new_game.year);
@@ -53,13 +89,22 @@ void add_videogame(){
     }while(new_game.year < 1900 || new_game.year > 2026);
     getchar();
     do{
+        too_long = 0;
         printf("Genere: ");
         fgets(new_game.genre, MAX_STRING_SIZE, stdin);
-        new_game.genre[strlen(new_game.genre) - 1] = '\0';
+        if(strlen(new_game.genre) > 0 && new_game.genre[strlen(new_game.genre) - 1] == '\n'){
+            new_game.genre[strlen(new_game.genre) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
         if(strlen(new_game.genre) == 0){
             printf("Inserire un genere. Riprova.\n");
         }
-    }while(strlen(new_game.genre) == 0);
+        if(too_long){
+            printf("Genere troppo lungo. Riprova.\n");
+        }
+    }while(strlen(new_game.genre) == 0 || too_long);
     
     new_game.copies_sold = 0;
     new_game.id = last_id() + 1;
@@ -89,8 +134,8 @@ int view_all_videogame(Videogame all_games[], int *max_id, int *games_count){
 }
 
 void edit_videogame(){
-    Videogame all_games[MAX];
-    int id, games_count, max_id, i, c, found = -1;
+    Videogame all_games[MAX_ARRAY_SIZE];
+    int id, games_count, max_id, i, c, too_long, found = -1;
     
     if(view_all_videogame(all_games, &max_id, &games_count) != -1){
 
@@ -116,37 +161,73 @@ void edit_videogame(){
         while ((c = getchar()) != '\n' && c != EOF)
         printf("--------Modifica videogioco--------\n");
         do{
+            too_long = 0;
             printf("Titolo Vecchio: %s\t Titolo Nuovo: ", all_games[i].title);
             fgets(all_games[i].title, MAX_STRING_SIZE, stdin);
-            all_games[i].title[strlen(all_games[i].title) - 1] = '\0';
+            if(strlen(all_games[i].title) > 0 && all_games[i].title[strlen(all_games[i].title) - 1] == '\n'){
+                all_games[i].title[strlen(all_games[i].title) - 1] = '\0';
+            } else{
+                while ((c = getchar()) != '\n' && c != EOF);
+                too_long = 1;
+            }
             if(strlen(all_games[i].title) == 0){
                 printf("Inserire un titolo. Riprova.\n");
             }
-        }while(strlen(all_games[i].title) == 0);
+            if(too_long){
+            printf("Titolo troppo lungo. Riprova.\n");
+        }
+        }while(strlen(all_games[i].title) == 0 || too_long);
         do{
+            too_long = 0;
             printf("Editore Vecchio: %s\t Editore Nuovo: ", all_games[i].editor);
             fgets(all_games[i].editor, MAX_STRING_SIZE, stdin);
-            all_games[i].editor[strlen(all_games[i].editor) - 1] = '\0';
+            if(strlen(all_games[i].editor) > 0 && all_games[i].editor[strlen(all_games[i].editor) - 1] == '\n'){
+                all_games[i].editor[strlen(all_games[i].editor) - 1] = '\0';
+            } else{
+                while ((c = getchar()) != '\n' && c != EOF);
+                too_long = 1;
+            }
             if(strlen(all_games[i].editor) == 0){
                 printf("Inserire un editore. Riprova.\n");
             }
-        }while(strlen(all_games[i].editor) == 0);
+            if(too_long){
+                printf("Nome editore troppo lungo. Riprova.\n");
+            }
+        }while(strlen(all_games[i].editor) == 0 || too_long);
         do{
+            too_long = 0;
             printf("Sviluppatore Vecchio: %s\t Sviluppatore Nuovo: ", all_games[i].developer);
             fgets(all_games[i].developer, MAX_STRING_SIZE, stdin);
-            all_games[i].developer[strlen(all_games[i].developer) - 1] = '\0';
+            if(strlen(all_games[i].developer) > 0 && all_games[i].developer[strlen(all_games[i].developer) - 1] == '\n'){
+                all_games[i].developer[strlen(all_games[i].developer) - 1] = '\0';    
+            } else{
+                while ((c = getchar()) != '\n' && c != EOF);
+                too_long = 1;
+            }
             if(strlen(all_games[i].developer) == 0){
                 printf("Inserire un sviluppatore. Riprova.\n");
             }
-        }while(strlen(all_games[i].developer) == 0);
+            if(too_long){
+                printf("Nome sviluppatore troppo lungo. Riprova.\n");
+            }
+        }while(strlen(all_games[i].developer) == 0 || too_long);
         do{
+            too_long = 0;
             printf("Descrizione Vecchia: %s\t Descrizione Nuova: ", all_games[i].description);
             fgets(all_games[i].description, MAX_STRING_SIZE, stdin);
-            all_games[i].description[strlen(all_games[i].description) - 1] = '\0';
+            if(strlen(all_games[i].description) > 0 && all_games[i].description[strlen(all_games[i].description) - 1] == '\n'){
+                all_games[i].description[strlen(all_games[i].description) - 1] = '\0';
+            } else{
+                while ((c = getchar()) != '\n' && c != EOF);
+                too_long = 1;
+            }
             if(strlen(all_games[i].description) == 0){
                 printf("Inserire una descrizione. Riprova.\n");
             }
-        }while(strlen(all_games[i].description) == 0);
+            if(too_long){
+                printf("Descrizione troppo lunga. Riprova.\n");
+            }
+        }while(strlen(all_games[i].description) == 0 || too_long);
         do{
             printf("Anno di pubblicazione Vecchio: %d\t Anno di pubblicazione Nuovo: ", all_games[i].year);
             scanf("%d", &all_games[i].year);
@@ -156,13 +237,22 @@ void edit_videogame(){
         }while(all_games[i].year < 1900 || all_games[i].year > 2050);
         getchar();
         do{
+            too_long = 0;
             printf("Genere Vecchio: %s\t Genere Nuovo: ", all_games[i].genre);
             fgets(all_games[i].genre, MAX_STRING_SIZE, stdin);
-            all_games[i].genre[strlen(all_games[i].genre) - 1] = '\0';
+            if(strlen(all_games[i].genre) > 0 && all_games[i].genre[strlen(all_games[i].genre) - 1] == '\n'){
+                all_games[i].genre[strlen(all_games[i].genre) - 1] = '\0';
+            } else{
+                while ((c = getchar()) != '\n' && c != EOF);
+                too_long = 1;
+            }
             if(strlen(all_games[i].genre) == 0){
                 printf("Inserire un genere. Riprova.\n");
             }
-        }while(strlen(all_games[i].genre) == 0);
+            if(too_long){
+                printf("Genere troppo lungo. Riprova.\n");
+            }
+        }while(strlen(all_games[i].genre) == 0 || too_long);
         
         edit_file(all_games, games_count);
         printf("Videogioco modificato con successo.\n");
@@ -170,7 +260,7 @@ void edit_videogame(){
 }
 
 void delete_videogame(){
-    Videogame all_games[MAX];
+    Videogame all_games[MAX_ARRAY_SIZE];
     int id, games_count, max_id, found = 0;
     
     if(view_all_videogame(all_games, &max_id, &games_count) != -1){
@@ -220,19 +310,27 @@ void delete_videogame(){
 
 void search_videogame(){
     char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE];
-    int c, games_count, found = 0;
-    Videogame all_games[MAX];
+    int c, games_count, too_long, found = 0;
+    Videogame all_games[MAX_ARRAY_SIZE];
 
     while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
 
     do {
         printf("Inserisci il titolo del videogioco da cercare: ");
         fgets(title, MAX_STRING_SIZE, stdin);
-        title[strlen(title) - 1] = '\0';
+        if(strlen(title) > 0 && title[strlen(title) - 1] == '\n'){
+            title[strlen(title) - 1] = '\0';
+        } else{
+            while ((c = getchar()) != '\n' && c != EOF);
+            too_long = 1;
+        }
         if (strlen(title) == 0) {
             printf("Inserire un titolo. Riprova.\n");
         }
-    } while (strlen(title) == 0);
+        if(too_long){
+            printf("Titolo troppo lungo. Riprova.\n");
+        }
+    } while (strlen(title) == 0 || too_long);
 
     if (read_all_videogames(all_games, &games_count) == 0) {
 
@@ -242,7 +340,7 @@ void search_videogame(){
 
         for (int i = 0; i < games_count; i++) {
 
-            memset(title_to_confront, 0, sizeof(title_to_confront));
+            memset(title_to_confront, 0, sizeof(title_to_confront)); // svuoto la stringa
 
             for (int j = 0; j < strlen(all_games[i].title); j++){
             title_to_confront[j] = tolower(all_games[i].title[j]);

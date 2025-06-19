@@ -2,7 +2,7 @@
 #define VIDEOGAME_H
 
 #define MAX_STRING_SIZE 100
-#define MAX 100
+#define MAX_ARRAY_SIZE 100
 
 typedef struct {
     int id;
