@@ -2,12 +2,13 @@
 #include "menu.h"
 #include "videogame.h"
 #include "research_and_order.h"
+#include "review.h"
 
 void stats(){
     int op;
     do{
         printf("--------Gestione statistiche--------\n");
-        printf("1. Ordine per Recensioni\n");
+        printf("1. Migliori recensioni \n");
         printf("2. Best seller\n");
         printf("3. Dati singolo videogioco\n");
         printf("4. Torna al menu principale\n");
@@ -19,11 +20,36 @@ void stats(){
             }
         }while (op < 1 || op > 4);
         if(op == 1){
-            //review_order();
+            top_reviewed();
         } else if(op == 2){
-            //bestseller_order();
+            top_seller();
         } else if(op == 3){
             search_videogame_admin();
+        }
+    }while(op != 4);
+}
+
+void order_menu(Videogame all_games[], int games_count, Review reviews[], int reviews_count){
+    int op;
+    do{
+        printf("--------Ordina Per--------\n");
+        printf("1. Recensioni\n");
+        printf("2. Bestseller\n");
+        printf("3. Alfabetico\n");
+        printf("4. Torna al menu principale\n");
+        printf("Scegli una opzione: ");
+        do {
+            scanf("%d", &op);
+            if (op < 1 || op > 4) {
+                printf("Opzione non valida. Riprova.\n");
+            }
+        }while (op < 1 || op > 4);
+        if(op == 1){
+            review_order(all_games, games_count, reviews, reviews_count);
+        } else if(op == 2){
+            bestseller_order(all_games, games_count);
+        } else if(op == 3){
+            alfabetical_order(all_games, games_count);
         }
     }while(op != 4);
 }
@@ -92,7 +118,7 @@ void user(){
         if(op == 1){
             search_videogame_user();
         } else if(op == 2){
-            //add_review();
+            show_all_videogames();
         }
     }while (op != 3);
 }

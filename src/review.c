@@ -45,6 +45,15 @@ void add_review(int videogame_id){
     printf("Recensione aggiunta con successo.\n");
 }
 
+double average_review(Review reviews[], int reviews_count){
+    double average = 0.0;
+    for (int i = 0; i < reviews_count; i++) {
+        average += reviews[i].value;
+    }
+    average /= reviews_count;
+    return average;
+}
+
 void view_reviews(int videogame_id){
     int reviews_count;
     double average = 0.0;
@@ -54,11 +63,7 @@ void view_reviews(int videogame_id){
         if(reviews_count == 0){
             printf("Nessuna recensione trovata.\n");
         } else{
-            for (int i = 0; i < reviews_count; i++) {
-                average += reviews[i].value;
-            }
-            average /= reviews_count;
-            printf("Media: %.1f\n", average);
+            printf("Media: %.1f\n", average_review(reviews, reviews_count));
             printf("--------Recensioni--------\n");
             for(int i = 0; i < reviews_count; i++){
                 printf("Valore: %.1f\n", reviews[i].value);

@@ -15,5 +15,6 @@ typedef struct review
 void add_review(int videogame_id);
 void view_reviews(int videogame_id);
 void delete_review(int videogame_id);
+double average_review(Review reviews[], int reviews_count);
 
 #endif
