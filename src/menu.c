@@ -23,7 +23,7 @@ void stats(){
         } else if(op == 2){
             //bestseller_order();
         } else if(op == 3){
-            view_videogame();
+            search_videogame_admin();
         }
     }while(op != 4);
 }
@@ -90,7 +90,7 @@ void user(){
             }
         }while (op < 1 || op > 3);
         if(op == 1){
-            search_videogame();
+            search_videogame_user();
         } else if(op == 2){
             //add_review();
         }

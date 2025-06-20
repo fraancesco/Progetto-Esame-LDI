@@ -6,7 +6,7 @@
 #include "file_manager.h"
 #include "review.h"
 
-void view_videogame(){
+void seatch_videogame_admin(){
     char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE], option;
     int c, games_count, too_long, found = 0;
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -68,7 +68,7 @@ void view_videogame(){
 }
 
 // TODO: implementare la ricerca per editore, sviluppatore, genere e anno di pubblicazione
-void search_videogame(){
+void search_videogame_user(){
     char title[MAX_STRING_SIZE], title_to_confront[MAX_STRING_SIZE], option;
     int c, games_count, too_long, found = 0;
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -112,12 +112,8 @@ void search_videogame(){
                     found = 1;
                 }
                 printf("Titolo: %s\n", all_games[i].title);
-                printf("Editore: %s\n", all_games[i].editor);
                 printf("Sviluppatore: %s\n", all_games[i].developer);
-                printf("Descrizione: %s\n", all_games[i].description);
-                printf("Anno di pubblicazione: %d\n", all_games[i].year);
                 printf("Genere: %s\n", all_games[i].genre);
-                printf("Copie vendute: %d\n", all_games[i].copies_sold);
                 view_reviews(all_games[i].id);
                 printf("-----------------------------------------\n");
                 do{
