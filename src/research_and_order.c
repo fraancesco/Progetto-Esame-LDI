@@ -235,7 +235,8 @@ void bestseller_order(Videogame all_games[], int games_count){
 
     printf("--------Videogiochi in ordine di vendita--------\n");
     for(int i = 0; i < games_count; i++){
-        printf("Titolo: %s\t Copies venduti: %d\n", all_games[i].title, all_games[i].copies_sold);
+        printf("Titolo: %s\t COPIE VENDUTE: %d\n", all_games[i].title, all_games[i].copies_sold);
+        printf("-----------------------------------------\n");
     }
 }
 
@@ -247,7 +248,8 @@ void review_order(Videogame all_games[], int games_count){
     printf("--------Videogiochi in ordine di recensione--------\n");
     for(int i = 0; i < games_count; i++){
         if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
-            printf("Titolo: %s\t Media Recensioni: %1.1lf\n", all_games[i].title, average_review(reviews, reviews_count));
+            printf("Titolo: %s\t MEDIA RECENSIONI: %1.1lf\n", all_games[i].title, average_review(reviews, reviews_count));
+            printf("-----------------------------------------\n");
         }
     }
 }
@@ -258,13 +260,56 @@ void alfabetical_order(Videogame all_games[], int games_count){
     printf("--------Videogiochi in ordine alfabetico--------\n");
     for(int i = 0; i < games_count; i++){
         printf("Titolo: %s\n", all_games[i].title);
+        printf("Descrizione: %s\n", all_games[i].description);
+        printf("Genere: %s\n", all_games[i].genre);
+        printf("-----------------------------------------\n");
     }
 }
 
-void top_seller(Videogame all_games[], int games_count){
-//....
+void top_seller(){
+    Review reviews[MAX_ARRAY_SIZE];
+    Videogame all_games[MAX_ARRAY_SIZE] = {0};
+    int reviews_count, games_count;
+
+    if(read_all_videogames(all_games, &games_count) == 0){
+        bestseller_sorter(all_games, games_count);
+        
+        printf("--------Videogiochi in ordine di vendita--------\n");
+        for(int i = 0; i < 5; i++){
+            if(strcmp(all_games[i].title, "") != 0){
+                if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
+                    printf("Titolo: %s\n", all_games[i].title);
+                    printf("Descrizione: %s\n", all_games[i].description);
+                    printf("Genere: %s\n", all_games[i].genre);
+                    printf("Media Recensioni: %1.1lf\n", average_review(reviews, reviews_count));
+                    printf("COPIE VENDUTE: %d\n", all_games[i].copies_sold);
+                    printf("\n");
+                }
+            }
+        }
+    }
 }
 
-void top_reviewed(Videogame all_games[], int games_count, Review reviews[], int reviews_count){
-//....
+void top_reviewed(){
+    Review reviews[MAX_ARRAY_SIZE];
+    Videogame all_games[MAX_ARRAY_SIZE] = {0};
+    int reviews_count, games_count;
+
+    if(read_all_videogames(all_games, &games_count) == 0){
+        best_reviewed_sorter(all_games, games_count);
+        
+        printf("--------Videogiochi in ordine di Recensioni--------\n");
+        for(int i = 0; i < 5; i++){
+            if(strcmp(all_games[i].title, "") != 0){
+                if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
+                    printf("Titolo: %s\n", all_games[i].title);
+                    printf("Descrizione: %s\n", all_games[i].description);
+                    printf("Genere: %s\n", all_games[i].genre);
+                    printf("Copie Vendute: %d\n", all_games[i].copies_sold);
+                    printf("MEDIA RECENSIONI: %1.1lf\n", average_review(reviews, reviews_count));
+                    printf("\n");
+                }
+            }
+        }
+    }
 }
