@@ -261,7 +261,6 @@ void edit_videogame(){
     }
 }
 
-// TODO: implementare cancellazione delle recensioni
 void delete_videogame(){
     Videogame all_games[MAX_ARRAY_SIZE];
     int id, games_count, max_id, found = 0, index_to_delete = -1;;

@@ -29,7 +29,7 @@ void stats(){
     }while(op != 4);
 }
 
-void order_menu(Videogame all_games[], int games_count, Review reviews[], int reviews_count){
+void order_menu(Videogame all_games[], int games_count){
     int op;
     do{
         printf("--------Ordina Per--------\n");

@@ -50,6 +50,10 @@ double average_review(Review reviews[], int reviews_count){
     for (int i = 0; i < reviews_count; i++) {
         average += reviews[i].value;
     }
+
+    if(average == 0.0){
+        return 0.0;
+    }
     average /= reviews_count;
     return average;
 }
@@ -69,6 +73,7 @@ void view_reviews(int videogame_id){
                 printf("Valore: %.1f\n", reviews[i].value);
                 printf("Commento: %s\n", reviews[i].comment);
             }
+            printf("-----------------------------------------\n");
         }
     }
 }
