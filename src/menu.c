@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "menu.h"
 #include "videogame.h"
+#include "research_and_order.h"
 
 void stats(){
     int op;

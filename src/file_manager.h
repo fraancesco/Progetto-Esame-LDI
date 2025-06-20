@@ -15,6 +15,7 @@ void edit_videogame_file(Videogame games[], int games_count);
 int last_review_id();
 int write_review_file(Review review);
 int read_reviews(Review reviews[], int videogame_id, int *reviews_count);
-
+int read_all_reviews(Review reviews[], int videogame_id, int *reviews_count);
+void edit_review_file(Review reviews[], int reviews_count);
 
 #endif
