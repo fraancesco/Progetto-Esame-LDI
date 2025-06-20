@@ -45,7 +45,7 @@ void order_menu(Videogame all_games[], int games_count, Review reviews[], int re
             }
         }while (op < 1 || op > 4);
         if(op == 1){
-            review_order(all_games, games_count, reviews, reviews_count);
+            review_order(all_games, games_count);
         } else if(op == 2){
             bestseller_order(all_games, games_count);
         } else if(op == 3){

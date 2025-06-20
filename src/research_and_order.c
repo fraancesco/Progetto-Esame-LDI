@@ -180,7 +180,6 @@ void show_all_videogames(){
             printf("Opzione non valida. Riprova.\n");
         }
     }while(option != 'y' && option != 'Y' && option != 'n' && option != 'N');
-    printf("-----------------------------------------\n");
 }
 
 void bestseller_sorter(Videogame all_games[], int games_count){
@@ -197,16 +196,21 @@ void bestseller_sorter(Videogame all_games[], int games_count){
     }
 }
 // AGGIUSTARE QUESTA FUNZIONE PER AVERE LA MEDIA DELLE RECENSIONI
-void best_reviewed_sorter(Videogame all_games[], int games_count, Review reviews[], int reviews_count){
+void best_reviewed_sorter(Videogame all_games[], int games_count){
     double average = 0.0;
-    int i, j;
+    int i, j, reviews_count_temp, reviews_count_temp_2;
     Videogame temp;
+    Review temp_1[MAX_ARRAY_SIZE], temp_2 [MAX_ARRAY_SIZE];
     for(i = 0; i < games_count; i++){
-        for(j = i + 1; j < games_count; j++){
-            if(average_review(reviews, reviews_count) > average_review(reviews, reviews_count)){
-                temp = all_games[i];
-                all_games[i] = all_games[j];
-                all_games[j] = temp;
+        if(read_reviews(temp_1, all_games[i].id,&reviews_count_temp) == 0){
+            for(j = i + 1; j < games_count; j++){
+                if(read_reviews(temp_2, all_games[j].id,&reviews_count_temp_2) == 0){
+                    if(average_review(temp_1, reviews_count_temp) < average_review(temp_2, reviews_count_temp_2)){
+                        temp = all_games[i];
+                        all_games[i] = all_games[j];
+                        all_games[j] = temp;
+                    }
+                }
             }
         }
     }
@@ -235,12 +239,16 @@ void bestseller_order(Videogame all_games[], int games_count){
     }
 }
 
-void review_order(Videogame all_games[], int games_count, Review reviews[], int reviews_count){
-    best_reviewed_sorter(all_games, games_count, reviews, reviews_count);
+void review_order(Videogame all_games[], int games_count){
+    best_reviewed_sorter(all_games, games_count);
+    Review reviews[MAX_ARRAY_SIZE];
+    int reviews_count;
 
     printf("--------Videogiochi in ordine di recensione--------\n");
     for(int i = 0; i < games_count; i++){
-        printf("Titolo: %s\t Media Recensioni: %1.1lf\n", all_games[i].title, average_review(reviews, reviews_count));
+        if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
+            printf("Titolo: %s\t Media Recensioni: %1.1lf\n", all_games[i].title, average_review(reviews, reviews_count));
+        }
     }
 }
 

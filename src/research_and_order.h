@@ -10,11 +10,11 @@ void search_videogame_user();
 void show_all_videogames();
 
 void bestseller_sorter(Videogame all_games[], int games_count);
-void best_reviewed_sorter(Videogame all_games[], int games_count, Review reviews[], int reviews_count);
+void best_reviewed_sorter(Videogame all_games[], int games_count);
 void alfabetical_sorter(Videogame all_games[], int games_count);
 
 void bestseller_order(Videogame all_games[], int games_count);
-void review_order(Videogame all_games[], int games_count, Review reviews[], int reviews_count);
+void review_order(Videogame all_games[], int games_count);
 void alfabetical_order(Videogame all_games[], int games_count);
 
 void top_seller();
