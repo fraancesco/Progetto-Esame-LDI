@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
 #include "videogame.h"
@@ -7,6 +6,7 @@
 #include "research_and_order.h"
 #include "review.h"
 
+// aggiunge un nuovo videogioco
 void add_videogame(){
     Videogame new_game;
     int c, too_long;

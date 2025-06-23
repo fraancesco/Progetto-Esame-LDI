@@ -158,7 +158,7 @@ void show_videogame_admin(Videogame all_games[], int games_count){
         printf("Genere: %s\n", all_games[i].genre);
         printf("Copie vendute: %d\n", all_games[i].copies_sold);
         view_reviews(all_games[i].id);
-        if(games_count == 1){
+        if (games_count != 1) {
             printf("-----------------------------------------\n");
         }
     }
@@ -341,6 +341,8 @@ void show_all_videogames(){
         }
     }while(option != 'y' && option != 'Y' && option != 'n' && option != 'N');
 }
+
+
 
 //funzioni di ordinamento dei vari criteri
 void bestseller_sorter(Videogame all_games[], int games_count){

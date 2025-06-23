@@ -77,7 +77,6 @@ void view_reviews(int videogame_id){
                 printf("Valore: %.1f\n", reviews[i].value);
                 printf("Commento: %s\n", reviews[i].comment);
             }
-            printf("-----------------------------------------\n");
         }
     }
 }
