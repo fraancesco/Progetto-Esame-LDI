@@ -124,9 +124,9 @@ void test_edit_videogame_file(void) {
 }
 
 
-/*******************************************************************************
+/*
  * TEST PER REVIEW.C
- ******************************************************************************/
+ */
 
 // Verifica che la media di un set vuoto, verificando che il risultato sia 0 come da comportamento atteso.
 void test_average_review_with_no_reviews(void) {
@@ -183,9 +183,9 @@ void test_delete_review_logic(void) {
 }
 
 
-/*******************************************************************************
+/*
  * TEST PER VIDEOGAME.C
- ******************************************************************************/
+ */
 
 // Verifica la funzionalità di acquisto, controllando che il contatore delle copie vendute di un gioco venga incrementato correttamente dopo la chiamata alla funzione.
 void test_buy_videogame(void) {
@@ -200,9 +200,9 @@ void test_buy_videogame(void) {
     TEST_ASSERT_EQUAL_INT(1501, all_games[0].copies_sold);
 }
 
-/*******************************************************************************
+/*
  * TEST PER RESEARCH_AND_SORTING.C
- ******************************************************************************/
+ */
 
 // Verifica la ricerca per titolo con una corrispondenza esatta e case-insensitive per assicurare che venga restituito il gioco corretto.
 void test_search_title_exact_match(void) {
