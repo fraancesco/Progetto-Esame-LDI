@@ -1,16 +1,35 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "videogame.h"
 #include "file_manager.h"
 #include "review.h"
 
 // scrive un videogioco nel file binario
 int write_videogame_file(Videogame game) {
+    Videogame all_games[MAX_ARRAY_SIZE];
+    int games_count;
+    char title[MAX_STRING_SIZE];
     FILE *file = fopen(PATH_VIDEOGAME_FILE, "ab");
     
     // controlla se il file è stato aperto correttamente
     if (file == NULL) {
         printf("Errore nella scrittura del file.\n");
         return -1;
+    }
+
+    // verifica la presenza di giochi con lo stesso titolo
+    if(read_all_videogames(all_games, &games_count) == 0){
+        for(int i = 0; i < games_count; i++){
+            memset(title, 0, sizeof(title));
+            for (int j = 0; j < strlen(all_games[i].title); j++){
+                title[j] = tolower(all_games[i].title[j]);
+            }
+            if(strcmp(title, game.title) == 0){
+                printf("Il gioco con lo stesso titolo esiste gia'.\n");
+                return -1;
+            }
+        }
     }
 
     // scrive il videogioco nel file

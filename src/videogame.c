@@ -111,9 +111,11 @@ void add_videogame(){
     new_game.copies_sold = 0;
     new_game.id = last_videogame_id() + 1;
 
-    write_videogame_file(new_game); //scrive il nuovo videogame nel file
-
-    printf("Videogioco aggiunto con successo.\n"); //messaggio di successo
+    if(write_videogame_file(new_game) == 0){
+        printf("Videogioco aggiunto con successo.\n"); //messaggio di successo
+    } else{
+        printf("Errore nella scrittura del videogioco.\n"); //messaggio di errore
+    }
 }
 
 int view_all_videogame(Videogame all_games[], int *max_id, int *games_count){
