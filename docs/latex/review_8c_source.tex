@@ -1,0 +1,109 @@
+\doxysection{review.\+c}
+\hypertarget{review_8c_source}{}\label{review_8c_source}\index{src/review.c@{src/review.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{review_8h}{review.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__manager_8h}{file\_manager.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ add\_review(\textcolor{keywordtype}{int}\ videogame\_id)\{}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ new\_review;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ c,\ too\_long;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);\ \textcolor{comment}{//\ svuota\ il\ buffer}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Aggiungi\ recensione-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{do}\{\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ la\ valutazione\ e\ valida}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Valore:\ "{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%lf"{}},\ \&new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ =\ round(new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ *\ 10.0)\ /\ 10.0;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ <\ 0.0\ ||\ new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ >\ 5.0)\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Valore\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \}\textcolor{keywordflow}{while}(new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ <\ 0\ ||\ new\_review.\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}}\ >\ 5);}
+\DoxyCodeLine{00023\ \ \ \ \ getchar();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//controlla\ se\ il\ commento\ è\ valido}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Commento:\ "{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ fgets(new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}},\ \mbox{\hyperlink{review_8h_a05c68bcda746654c6bdb115f467b2d14}{MAX\_COMMENT\_SIZE}},\ stdin);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}})\ >\ 0\ \&\&\ new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}}[strlen(new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}}[strlen(new\_review.\mbox{\hyperlink{structreview_aef75f5709e4f93365a589caec67ad32b}{comment}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ rimuove\ il\ ritorno\ a\ capo\ preso\ come\ carattere\ nel\ caso\ in\ cui\ ci\ sia}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);\ \textcolor{comment}{//\ stringa\ troppo\ lunga\ e\ quindi\ ritorno\ a\ capo\ non\ presente,\ pulizia\ del\ buffer}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ troppo\ lunga.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}\textcolor{keywordflow}{while}(too\_long);}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ new\_review.\mbox{\hyperlink{structreview_a59b3fe897a739d4e09c1923a053343ff}{videogame\_id}}\ =\ videogame\_id;}
+\DoxyCodeLine{00041\ \ \ \ \ new\_review.\mbox{\hyperlink{structreview_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ last\_review\_id()\ +\ 1;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ write\_review\_file(new\_review);\ \textcolor{comment}{//aggiunge\ la\ recensione\ al\ file}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Recensione\ aggiunta\ con\ successo.\(\backslash\)n"{}});\ \textcolor{comment}{//messaggio\ di\ conferma}}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//somma\ tutte\ le\ valutazioni\ se\ presenti\ e\ fa\ la\ media}}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{double}\ average\_review(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ reviews\_count)\{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{double}\ average\ =\ 0.0;}
+\DoxyCodeLine{00051\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}(reviews\_count\ ==\ 0)\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ reviews\_count;\ i++)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ average\ +=\ reviews[i].\mbox{\hyperlink{structreview_aee90379adb0307effb138f4871edbc5c}{value}};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}(average\ ==\ 0.0)\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ average\ /=\ reviews\_count;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ average;}
+\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ view\_reviews(\textcolor{keywordtype}{int}\ videogame\_id)\{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ reviews\_count;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ average\ =\ 0.0;}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ controlla\ le\ recensioni\ del\ videgame\ e\ le\ mostra,\ se\ presenti,\ con\ valutazione\ e\ commento,\ altrimenti\ messaggio\ di\ errore}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}(read\_reviews(reviews,\ videogame\_id,\ \&reviews\_count)\ ==\ 0)\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(reviews\_count\ ==\ 0)\{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nessuna\ recensione\ trovata.\(\backslash\)n"{}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Media:\ \%.1f\(\backslash\)n"{}},\ average\_review(reviews,\ reviews\_count));}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Recensioni-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ reviews\_count;\ i++)\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Valore:\ \%.1f\(\backslash\)n"{}},\ reviews[i].value);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Commento:\ \%s\(\backslash\)n"{}},\ reviews[i].comment);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ delete\_review(\textcolor{keywordtype}{int}\ videogame\_id)\{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ reviews\_count,\ i,\ found\ =\ 0;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//trova\ ed\ elimina\ la\ recensione\ selezinata}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_reviews(reviews,\ videogame\_id,\ \&reviews\_count)\ ==\ 0)\{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ reviews\_count;\ i++)\{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(reviews[i].videogame\_id\ ==\ videogame\_id)\{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i;\ i\ <\ reviews\_count\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reviews[j]\ =\ reviews[j\ +\ 1];}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ edit\_review\_file(reviews,\ reviews\_count\ -\/\ 1);\ \textcolor{comment}{//riscrive\ le\ recensioni\ rimanenti}}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}

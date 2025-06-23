@@ -1,0 +1,244 @@
+\doxysection{file\+\_\+manager.\+c}
+\hypertarget{file__manager_8c_source}{}\label{file__manager_8c_source}\index{src/file\_manager.c@{src/file\_manager.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{videogame_8h}{videogame.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__manager_8h}{file\_manager.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{review_8h}{review.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ scrive\ un\ videogioco\ nel\ file\ binario}}
+\DoxyCodeLine{00009\ \textcolor{keywordtype}{int}\ write\_videogame\_file(\mbox{\hyperlink{struct_videogame}{Videogame}}\ game)\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ games\_count;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{char}\ title[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];}
+\DoxyCodeLine{00013\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c}{PATH\_VIDEOGAME\_FILE}},\ \textcolor{stringliteral}{"{}ab"{}});}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ verifica\ la\ presenza\ di\ giochi\ con\ lo\ stesso\ titolo}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_videogames(all\_games,\ \&games\_count)\ ==\ 0)\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ memset(title,\ 0,\ \textcolor{keyword}{sizeof}(title));}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ strlen(all\_games[i].title);\ j++)\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ title[j]\ =\ tolower(all\_games[i].title[j]);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strcmp(title,\ game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ ==\ 0)\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Il\ gioco\ con\ lo\ stesso\ titolo\ esiste\ gia'.\(\backslash\)n"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ scrive\ il\ videogioco\ nel\ file}}
+\DoxyCodeLine{00036\ \ \ \ \ fwrite(\&game,\ \textcolor{keyword}{sizeof}(game),\ 1,\ file);}
+\DoxyCodeLine{00037\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ legge\ l'ultimo\ ID\ videogioco\ presente\ nel\ file}}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ last\_videogame\_id()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ last\_record;}
+\DoxyCodeLine{00044\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c}{PATH\_VIDEOGAME\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ se\ il\ file\ è\ vuoto,\ ritorna\ 0}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ fseek(file,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{long}\ size\ =\ ftell(file);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ se\ il\ file\ è\ vuoto,\ ritorna\ 0}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ legge\ l'ultimo\ record\ presente\ nel\ file}}
+\DoxyCodeLine{00058\ \ \ \ \ fseek(file,\ -\/(\textcolor{keywordtype}{long})\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_videogame}{Videogame}}),\ SEEK\_END);}
+\DoxyCodeLine{00059\ \ \ \ \ fread(\&last\_record,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_videogame}{Videogame}}),\ 1,\ file);}
+\DoxyCodeLine{00060\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00061\ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ ritorna\ l'ID\ del\ record\ letto}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ last\_record.\mbox{\hyperlink{struct_videogame_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00064\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ legge\ tutti\ i\ videogiochi\ dal\ file\ binario}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{int}\ read\_all\_videogames(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ *games\_count)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c}{PATH\_VIDEOGAME\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ calcola\ il\ numero\ di\ record\ nel\ file,\ partendo\ dalla\ sua\ dimensione}}
+\DoxyCodeLine{00077\ \ \ \ \ fseek(file,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00078\ \ \ \ \ *games\_count\ =\ ftell(file)\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_videogame}{Videogame}});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (games\_count\ ==\ 0)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ legge\ tutti\ i\ record\ nel\ file}}
+\DoxyCodeLine{00086\ \ \ \ \ fseek(file,\ 0,\ SEEK\_SET);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ *games\_count;\ i++)\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ fread(\&all\_games[i],\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_videogame}{Videogame}}),\ 1,\ file);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ aggiorna\ il\ file\ dei\ videogiochi\ con\ modifiche}}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{int}\ edit\_videogame\_file(\mbox{\hyperlink{struct_videogame}{Videogame}}\ games[],\ \textcolor{keywordtype}{int}\ games\_count)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c}{PATH\_VIDEOGAME\_FILE}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ scrive\ tutti\ i\ videogiochi\ presenti\ nell'array\ modificato\ nel\ file}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ fwrite(\&games[i],\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_videogame}{Videogame}}),\ 1,\ file);}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ legge\ l'ultimo\ ID\ recensione\ presente\ nel\ file}}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{int}\ last\_review\_id()\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ last\_record;}
+\DoxyCodeLine{00117\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}{PATH\_REVIEW\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ calcola\ la\ dimensione\ del\ file,\ partendo\ dalla\ sua\ dimensione}}
+\DoxyCodeLine{00125\ \ \ \ \ fseek(file,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{long}\ size\ =\ ftell(file);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ se\ il\ file\ è\ vuoto,\ ritorna\ 0}}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ legge\ l'ultimo\ record\ presente\ nel\ file}}
+\DoxyCodeLine{00133\ \ \ \ \ fseek(file,\ -\/(\textcolor{keywordtype}{long})\textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}),\ SEEK\_END);}
+\DoxyCodeLine{00134\ \ \ \ \ fread(\&last\_record,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}),\ 1,\ file);}
+\DoxyCodeLine{00135\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00136\ \ \ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ ritorna\ l'ID\ del\ record\ letto}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}\ last\_record.\mbox{\hyperlink{structreview_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00139\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ scrive\ una\ recensione\ nel\ file\ binario}}
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{int}\ write\_review\_file(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ \mbox{\hyperlink{structreview}{review}})\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}{PATH\_REVIEW\_FILE}},\ \textcolor{stringliteral}{"{}ab"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ scrive\ la\ recensione\ nel\ file}}
+\DoxyCodeLine{00152\ \ \ \ \ fwrite(\&\mbox{\hyperlink{structreview}{review}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structreview}{review}}),\ 1,\ file);}
+\DoxyCodeLine{00153\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{comment}{//\ aggiorna\ il\ file\ delle\ recensioni\ con\ modifiche}}
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{int}\ edit\_review\_file(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ reviews\_count)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}{PATH\_REVIEW\_FILE}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ scrive\ tutte\ le\ recensioni\ presenti\ nell'array\ modificato\ nel\ file}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ reviews\_count;\ i++)\{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ fwrite(\&reviews[i],\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}),\ 1,\ file);}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{comment}{//\ legge\ tutte\ le\ recensioni\ dal\ file\ binario}}
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{int}\ read\_all\_reviews(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ videogame\_id,\ \textcolor{keywordtype}{int}\ *reviews\_count)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}{PATH\_REVIEW\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ calcola\ il\ numero\ di\ record\ nel\ file,\ partendo\ dalla\ sua\ dimensione}}
+\DoxyCodeLine{00187\ \ \ \ \ fseek(file,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00188\ \ \ \ \ *reviews\_count\ =\ ftell(file)\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}});}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ se\ il\ file\ è\ vuoto,\ ritorna\ 0}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (*reviews\_count\ ==\ 0)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ legge\ tutte\ le\ recensioni\ nel\ file}}
+\DoxyCodeLine{00197\ \ \ \ \ fseek(file,\ 0,\ SEEK\_SET);}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ *reviews\_count;\ i++)\{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ fread(\&reviews[i],\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}),\ 1,\ file);}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00203\ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ legge\ tutte\ le\ recensioni\ relative\ ad\ un\ videogioco\ dal\ file\ binario}}
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{int}\ read\_reviews(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ videogame\_id,\ \textcolor{keywordtype}{int}\ *reviews\_count)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ temp;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ all\_reviews\_number;}
+\DoxyCodeLine{00209\ \ \ \ \ FILE\ *file\ =\ fopen(\mbox{\hyperlink{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}{PATH\_REVIEW\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00210\ \ \ \ \ *reviews\_count\ =\ 0;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{//\ controlla\ se\ il\ file\ è\ stato\ aperto\ correttamente}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ del\ file.\(\backslash\)n"{}});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{//\ calcola\ il\ numero\ di\ record\ nel\ file,\ partendo\ dalla\ sua\ dimensione}}
+\DoxyCodeLine{00219\ \ \ \ \ fseek(file,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00220\ \ \ \ \ all\_reviews\_number\ =\ ftell(file)\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}});}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (all\_reviews\_number\ ==\ 0)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ legge\ le\ recensioni\ presenti\ nel\ file,\ filtrandole\ secondo\ l'ID\ del\ videogioco}}
+\DoxyCodeLine{00229\ \ \ \ \ fseek(file,\ 0,\ SEEK\_SET);}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ all\_reviews\_number;\ i++)\{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ fread(\&temp,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}),\ 1,\ file);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(temp.\mbox{\hyperlink{structreview_a59b3fe897a739d4e09c1923a053343ff}{videogame\_id}}\ ==\ videogame\_id)\{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ reviews[(*reviews\_count)++]\ =\ temp;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00238\ \}}
+
+\end{DoxyCode}

@@ -18,6 +18,22 @@
 #include "videogame.h"
 
 /**
+ * @brief Converte la scelte dell'utente in un numero intero
+ * 
+ * Prende l'input dell'utente e lo converte in un numero intero
+ * utilizzando la funzione strtol() per evitare problemi di conversione.
+ * 
+ * Utilizza un ciclo while per chiedere l'input finché non viene
+ * inserito un numero valido compreso tra min_op e max_op.
+ * 
+ * @param min_op Numero minimo accettabile per l'opzione
+ * @param max_op Numero massimo accettabile per l'opzione
+ * 
+ * @return Un intero che rappresenta la scelta valida dell'utente
+ */
+int get_menu_choice(int min_op, int max_op);
+
+/**
  * @brief Menu per le opzioni di ordinamento e visualizzazione
  * 
  * Presenta le diverse modalità di ordinamento e visualizzazione
