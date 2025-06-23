@@ -14,7 +14,7 @@ int search_editor(char keyword[], int games_count, Videogame all_games[], Videog
     char editor[MAX_STRING_SIZE];
 
     for (int i = 0; i < games_count; i++) {
-        memset(editor, 0, sizeof(editor));
+        memset(editor, 0, sizeof(editor)); // svuota la stringa
         for (int j = 0; j < strlen(all_games[i].editor); j++){
             editor[j] = tolower(all_games[i].editor[j]);
         }
