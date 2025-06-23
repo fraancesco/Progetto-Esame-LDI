@@ -1,0 +1,398 @@
+\doxysection{src/research\+\_\+and\+\_\+sorting.h File Reference}
+\hypertarget{research__and__sorting_8h}{}\label{research__and__sorting_8h}\index{src/research\_and\_sorting.h@{src/research\_and\_sorting.h}}
+
+
+Header file per la ricerca e l\textquotesingle{}ordinamento dei videogame.  
+
+
+{\ttfamily \#include "{}videogame.\+h"{}}\newline
+{\ttfamily \#include "{}review.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{research__and__sorting_8h_ac2800e5c4dd24cd0ce5b14df981252af}{search\+\_\+editor}} (char keyword\mbox{[}$\,$\mbox{]}, int games\+\_\+count, \mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_videogame}{Videogame}} temp\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cerca videogame per editore. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{research__and__sorting_8h_a9abf741d50fa82b41e410f9f0f87727f}{search\+\_\+developer}} (char keyword\mbox{[}$\,$\mbox{]}, int games\+\_\+count, \mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_videogame}{Videogame}} temp\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cerca videogame per sviluppatore. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{research__and__sorting_8h_acc4a36410d9f645494c1414d97530c07}{search\+\_\+genre}} (char keyword\mbox{[}$\,$\mbox{]}, int games\+\_\+count, \mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_videogame}{Videogame}} temp\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cerca videogame per genere. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{research__and__sorting_8h_a8751d3be2fa775ba0eb306283501e7b7}{search\+\_\+year}} (char keyword\mbox{[}$\,$\mbox{]}, int games\+\_\+count, \mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_videogame}{Videogame}} temp\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cerca videogame per anno di pubblicazione. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{research__and__sorting_8h_a8b0a38a1631ec64fb710540955898441}{search\+\_\+title}} (char keyword\mbox{[}$\,$\mbox{]}, int games\+\_\+count, \mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_videogame}{Videogame}} temp\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cerca videogame per titolo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a0a003c31b3de91bfe5e9ec813020750f}{show\+\_\+videogame\+\_\+admin}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza videogame per amministratori. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a09c2bc3fd8dc0f4d1dddab0616335faf}{show\+\_\+videogame\+\_\+user}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza videogame per utenti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a44a558c84313ff5fdd0f2bf24b42281c}{search\+\_\+videogame\+\_\+admin}} ()
+\begin{DoxyCompactList}\small\item\em Interfaccia di ricerca videogame per amministratori. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a5e520ddd5c0d3b2e131f99d346c53992}{search\+\_\+videogame\+\_\+user}} ()
+\begin{DoxyCompactList}\small\item\em Interfaccia di ricerca videogame per utenti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a7ae67c7d35a17675933ba9bc3b13f2bd}{show\+\_\+all\+\_\+videogames}} ()
+\begin{DoxyCompactList}\small\item\em Visualizza tutti i videogame disponibili. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_ab5d4ece1d8f654016609d2193527cb8f}{bestseller\+\_\+sorter}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Ordina videogame per numero di copie vendute (bestseller) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a9c71abc577e5db50273f3e654f12cc53}{best\+\_\+reviewed\+\_\+sorter}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Ordina videogame per valutazione delle recensioni. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_aa03cca3175206718d908f5137a635479}{alfabetical\+\_\+sorter}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Ordina videogame alfabeticamente per titolo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a8c40d310f1e14b6d64cf68a7b5ea0183}{bestseller\+\_\+order}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza videogame ordinati per vendite (bestseller) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_afa28330ab77a8b7749ad6308a413b411}{review\+\_\+order}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza videogame ordinati per recensioni. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a93cbafff6c499b8dc3c4ac8157152143}{alfabetical\+\_\+order}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza videogame in ordine alfabetico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_ad556b8e8468989b8f3da69027150b33d}{top\+\_\+seller}} ()
+\begin{DoxyCompactList}\small\item\em Visualizza la classifica dei videogame più venduti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{research__and__sorting_8h_a435453330c039a4a7eb3316f1a20ed16}{top\+\_\+reviewed}} ()
+\begin{DoxyCompactList}\small\item\em Visualizza la classifica dei videogame meglio recensiti. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file per la ricerca e l\textquotesingle{}ordinamento dei videogame. 
+
+\begin{DoxyAuthor}{Author}
+Fractesco Pice -\/ Francesco Sblendorio 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+23-\/06-\/2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Questo modulo fornisce funzionalità complete per la ricerca, il filtraggio e l\textquotesingle{}ordinamento dei videogame, con interfacce differenziate per amministratori e utenti. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{research__and__sorting_8h_a93cbafff6c499b8dc3c4ac8157152143}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!alfabetical\_order@{alfabetical\_order}}
+\index{alfabetical\_order@{alfabetical\_order}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{alfabetical\_order()}{alfabetical\_order()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a93cbafff6c499b8dc3c4ac8157152143} 
+void alfabetical\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza videogame in ordine alfabetico. 
+
+Mostra i videogame ordinati alfabeticamente per titolo, facilitando la ricerca di giochi specifici.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente i videogame da visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_aa03cca3175206718d908f5137a635479}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!alfabetical\_sorter@{alfabetical\_sorter}}
+\index{alfabetical\_sorter@{alfabetical\_sorter}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{alfabetical\_sorter()}{alfabetical\_sorter()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_aa03cca3175206718d908f5137a635479} 
+void alfabetical\+\_\+sorter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Ordina videogame alfabeticamente per titolo. 
+
+Riordina l\textquotesingle{}array dei videogame in ordine alfabetico crescente basandosi sul titolo del gioco.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array di videogame da ordinare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_a9c71abc577e5db50273f3e654f12cc53}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!best\_reviewed\_sorter@{best\_reviewed\_sorter}}
+\index{best\_reviewed\_sorter@{best\_reviewed\_sorter}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{best\_reviewed\_sorter()}{best\_reviewed\_sorter()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a9c71abc577e5db50273f3e654f12cc53} 
+void best\+\_\+reviewed\+\_\+sorter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Ordina videogame per valutazione delle recensioni. 
+
+Riordina l\textquotesingle{}array dei videogame in ordine decrescente basandosi sulla media delle valutazioni delle recensioni ricevute.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array di videogame da ordinare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_a8c40d310f1e14b6d64cf68a7b5ea0183}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!bestseller\_order@{bestseller\_order}}
+\index{bestseller\_order@{bestseller\_order}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{bestseller\_order()}{bestseller\_order()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a8c40d310f1e14b6d64cf68a7b5ea0183} 
+void bestseller\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza videogame ordinati per vendite (bestseller) 
+
+Mostra i videogame ordinati per numero di copie vendute, evidenziando i titoli più commercialmente di successo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente i videogame da visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_ab5d4ece1d8f654016609d2193527cb8f}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!bestseller\_sorter@{bestseller\_sorter}}
+\index{bestseller\_sorter@{bestseller\_sorter}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{bestseller\_sorter()}{bestseller\_sorter()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_ab5d4ece1d8f654016609d2193527cb8f} 
+void bestseller\+\_\+sorter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Ordina videogame per numero di copie vendute (bestseller) 
+
+Riordina l\textquotesingle{}array dei videogame in ordine decrescente basandosi sul numero di copie vendute per identificare i bestseller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array di videogame da ordinare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_afa28330ab77a8b7749ad6308a413b411}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!review\_order@{review\_order}}
+\index{review\_order@{review\_order}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{review\_order()}{review\_order()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_afa28330ab77a8b7749ad6308a413b411} 
+void review\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza videogame ordinati per recensioni. 
+
+Mostra i videogame ordinati per valutazione media delle recensioni, evidenziando i titoli più apprezzati dagli utenti.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente i videogame da visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_a9abf741d50fa82b41e410f9f0f87727f}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_developer@{search\_developer}}
+\index{search\_developer@{search\_developer}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_developer()}{search\_developer()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a9abf741d50fa82b41e410f9f0f87727f} 
+int search\+\_\+developer (\begin{DoxyParamCaption}\item[{char}]{keyword}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{temp}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Cerca videogame per sviluppatore. 
+
+Filtra i videogame in base al nome dello sviluppatore, supportando ricerca parziale e case-\/insensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyword} & Parola chiave per la ricerca dello sviluppatore \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em temp} & Array temporaneo per memorizzare i risultati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame trovati 
+\end{DoxyReturn}
+\Hypertarget{research__and__sorting_8h_ac2800e5c4dd24cd0ce5b14df981252af}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_editor@{search\_editor}}
+\index{search\_editor@{search\_editor}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_editor()}{search\_editor()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_ac2800e5c4dd24cd0ce5b14df981252af} 
+int search\+\_\+editor (\begin{DoxyParamCaption}\item[{char}]{keyword}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{temp}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Cerca videogame per editore. 
+
+Filtra i videogame in base al nome dell\textquotesingle{}editore, supportando ricerca parziale e case-\/insensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyword} & Parola chiave per la ricerca dell\textquotesingle{}editore \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em temp} & Array temporaneo per memorizzare i risultati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame trovati 
+\end{DoxyReturn}
+\Hypertarget{research__and__sorting_8h_acc4a36410d9f645494c1414d97530c07}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_genre@{search\_genre}}
+\index{search\_genre@{search\_genre}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_genre()}{search\_genre()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_acc4a36410d9f645494c1414d97530c07} 
+int search\+\_\+genre (\begin{DoxyParamCaption}\item[{char}]{keyword}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{temp}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Cerca videogame per genere. 
+
+Filtra i videogame in base al genere specificato, supportando ricerca parziale e case-\/insensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyword} & Parola chiave per la ricerca del genere \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em temp} & Array temporaneo per memorizzare i risultati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame trovati 
+\end{DoxyReturn}
+\Hypertarget{research__and__sorting_8h_a8b0a38a1631ec64fb710540955898441}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_title@{search\_title}}
+\index{search\_title@{search\_title}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_title()}{search\_title()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a8b0a38a1631ec64fb710540955898441} 
+int search\+\_\+title (\begin{DoxyParamCaption}\item[{char}]{keyword}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{temp}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Cerca videogame per titolo. 
+
+Filtra i videogame in base al titolo, supportando ricerca parziale e case-\/insensitive per trovare corrispondenze nel nome del gioco.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyword} & Parola chiave per la ricerca del titolo \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em temp} & Array temporaneo per memorizzare i risultati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame trovati 
+\end{DoxyReturn}
+\Hypertarget{research__and__sorting_8h_a44a558c84313ff5fdd0f2bf24b42281c}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_videogame\_admin@{search\_videogame\_admin}}
+\index{search\_videogame\_admin@{search\_videogame\_admin}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_videogame\_admin()}{search\_videogame\_admin()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a44a558c84313ff5fdd0f2bf24b42281c} 
+void search\+\_\+videogame\+\_\+admin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interfaccia di ricerca videogame per amministratori. 
+
+Fornisce un\textquotesingle{}interfaccia completa di ricerca con tutte le opzioni disponibili per gli amministratori del catalogo, incluse funzioni di modifica e gestione avanzata. \Hypertarget{research__and__sorting_8h_a5e520ddd5c0d3b2e131f99d346c53992}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_videogame\_user@{search\_videogame\_user}}
+\index{search\_videogame\_user@{search\_videogame\_user}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_videogame\_user()}{search\_videogame\_user()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a5e520ddd5c0d3b2e131f99d346c53992} 
+void search\+\_\+videogame\+\_\+user (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interfaccia di ricerca videogame per utenti. 
+
+Fornisce un\textquotesingle{}interfaccia semplificata di ricerca dedicata agli utenti finali, con opzioni di visualizzazione e acquisto dei videogame. \Hypertarget{research__and__sorting_8h_a8751d3be2fa775ba0eb306283501e7b7}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!search\_year@{search\_year}}
+\index{search\_year@{search\_year}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{search\_year()}{search\_year()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a8751d3be2fa775ba0eb306283501e7b7} 
+int search\+\_\+year (\begin{DoxyParamCaption}\item[{char}]{keyword}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{temp}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Cerca videogame per anno di pubblicazione. 
+
+Filtra i videogame in base all\textquotesingle{}anno di pubblicazione specificato.
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyword} & Stringa contenente l\textquotesingle{}anno di ricerca \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em temp} & Array temporaneo per memorizzare i risultati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame trovati 
+\end{DoxyReturn}
+\Hypertarget{research__and__sorting_8h_a7ae67c7d35a17675933ba9bc3b13f2bd}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!show\_all\_videogames@{show\_all\_videogames}}
+\index{show\_all\_videogames@{show\_all\_videogames}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{show\_all\_videogames()}{show\_all\_videogames()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a7ae67c7d35a17675933ba9bc3b13f2bd} 
+void show\+\_\+all\+\_\+videogames (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza tutti i videogame disponibili. 
+
+Mostra l\textquotesingle{}elenco completo di tutti i videogame presenti nel sistema senza alcun filtro o ordinamento particolare. \Hypertarget{research__and__sorting_8h_a0a003c31b3de91bfe5e9ec813020750f}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!show\_videogame\_admin@{show\_videogame\_admin}}
+\index{show\_videogame\_admin@{show\_videogame\_admin}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{show\_videogame\_admin()}{show\_videogame\_admin()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a0a003c31b3de91bfe5e9ec813020750f} 
+void show\+\_\+videogame\+\_\+admin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza videogame per amministratori. 
+
+Mostra i videogame con interfaccia amministratore, includendo opzioni per modifica, eliminazione e gestione avanzata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente i videogame da visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_a09c2bc3fd8dc0f4d1dddab0616335faf}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!show\_videogame\_user@{show\_videogame\_user}}
+\index{show\_videogame\_user@{show\_videogame\_user}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{show\_videogame\_user()}{show\_videogame\_user()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a09c2bc3fd8dc0f4d1dddab0616335faf} 
+void show\+\_\+videogame\+\_\+user (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza videogame per utenti. 
+
+Mostra i videogame con interfaccia utente semplificata, focalizzata su visualizzazione e acquisto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente i videogame da visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{research__and__sorting_8h_a435453330c039a4a7eb3316f1a20ed16}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!top\_reviewed@{top\_reviewed}}
+\index{top\_reviewed@{top\_reviewed}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{top\_reviewed()}{top\_reviewed()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_a435453330c039a4a7eb3316f1a20ed16} 
+void top\+\_\+reviewed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza la classifica dei videogame meglio recensiti. 
+
+Mostra una classifica dedicata dei videogame con le migliori valutazioni medie dalle recensioni. \Hypertarget{research__and__sorting_8h_ad556b8e8468989b8f3da69027150b33d}\index{research\_and\_sorting.h@{research\_and\_sorting.h}!top\_seller@{top\_seller}}
+\index{top\_seller@{top\_seller}!research\_and\_sorting.h@{research\_and\_sorting.h}}
+\doxysubsubsection{\texorpdfstring{top\_seller()}{top\_seller()}}
+{\footnotesize\ttfamily \label{research__and__sorting_8h_ad556b8e8468989b8f3da69027150b33d} 
+void top\+\_\+seller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza la classifica dei videogame più venduti. 
+
+Mostra una classifica dedicata dei videogame con il maggior numero di copie vendute. 

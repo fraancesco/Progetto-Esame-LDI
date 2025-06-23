@@ -1,0 +1,37 @@
+\doxysection{videogame.\+h}
+\hypertarget{videogame_8h_source}{}\label{videogame_8h_source}\index{src/videogame.h@{src/videogame.h}}
+\mbox{\hyperlink{videogame_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VIDEOGAME\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VIDEOGAME\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MAX\_STRING\_SIZE\ 100}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MAX\_ARRAY\_SIZE\ 100}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_videogame_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_videogame_aeac3931fd7d8118a1d41f49463217995}{copies\_sold}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[\mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{struct_videogame}{Videogame}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{videogame_8h_a661ca04245d436cd310b8241bb3bc217}{add\_videogame}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{videogame_8h_a6cdf9be7a9b02786fc6223d4ecf3f89d}{view\_all\_videogame}}(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ *max\_id,\ \textcolor{keywordtype}{int}\ *games\_count);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{videogame_8h_ab9bf198fd76449f46ccebe5064a1e0ff}{edit\_videogame}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{videogame_8h_a340f604672a4f5c50641675184f27b39}{delete\_videogame}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{videogame_8h_aa16be94f55bef6f92666dca3017622ca}{buy\_videogame}}(\textcolor{keywordtype}{int}\ videogame\_id);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

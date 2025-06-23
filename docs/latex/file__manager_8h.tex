@@ -1,0 +1,240 @@
+\doxysection{src/file\+\_\+manager.h File Reference}
+\hypertarget{file__manager_8h}{}\label{file__manager_8h}\index{src/file\_manager.h@{src/file\_manager.h}}
+
+
+Header file per la gestione dei file binari del sistema.  
+
+
+{\ttfamily \#include "{}videogame.\+h"{}}\newline
+{\ttfamily \#include "{}review.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c}\label{file__manager_8h_ae41749e05bb142e45c44d106bdce2e0c} 
+\#define {\bfseries PATH\+\_\+\+VIDEOGAME\+\_\+\+FILE}~"{}../data/videogiochi.\+bin"{}
+\begin{DoxyCompactList}\small\item\em Percorso del file binario contenente i dati dei videogame. \end{DoxyCompactList}\item 
+\Hypertarget{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3}\label{file__manager_8h_ab6d9362d056ec219a108d0e08471d0d3} 
+\#define {\bfseries PATH\+\_\+\+REVIEW\+\_\+\+FILE}~"{}../data/recensioni.\+bin"{}
+\begin{DoxyCompactList}\small\item\em Percorso del file binario contenente i dati delle recensioni. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{file__manager_8h_ae878ae74c2be7030ca9febacd81b9b73}{write\+\_\+videogame\+\_\+file}} (\mbox{\hyperlink{struct_videogame}{Videogame}} game)
+\begin{DoxyCompactList}\small\item\em Scrive un videogame nel file binario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_ac4db2ab46f8b9e3c5d03315507d81aad}{last\+\_\+videogame\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em Ottiene l\textquotesingle{}ultimo ID videogame presente nel file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_ae214ea38c36d38f23cde0954f31a0efc}{read\+\_\+all\+\_\+videogames}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Legge tutti i videogame dal file binario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_ab3c7b5b89b27c86b47e0ba0ec95a3e56}{edit\+\_\+videogame\+\_\+file}} (\mbox{\hyperlink{struct_videogame}{Videogame}} games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Aggiorna il file dei videogame con modifiche. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_a68227890734ccc63ac52b7da3ea473ae}{last\+\_\+review\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em Ottiene l\textquotesingle{}ultimo ID recensione presente nel file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_a960359971297b5ec04f90d522d95ae64}{write\+\_\+review\+\_\+file}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} \mbox{\hyperlink{structreview}{review}})
+\begin{DoxyCompactList}\small\item\em Scrive una recensione nel file binario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_a04bf7ce7e871c2ace62bb7eafcd1ac7f}{edit\+\_\+review\+\_\+file}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int reviews\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Aggiorna il file delle recensioni con modifiche. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6}{read\+\_\+all\+\_\+reviews}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int videogame\+\_\+id, int \texorpdfstring{$\ast$}{*}reviews\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Legge tutte le recensioni dal file binario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__manager_8h_ab9e78f5c770d97036908dd73938b8738}{read\+\_\+reviews}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int videogame\+\_\+id, int \texorpdfstring{$\ast$}{*}reviews\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Legge le recensioni di un videogame specifico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file per la gestione dei file binari del sistema. 
+
+\begin{DoxyAuthor}{Author}
+Francesco Pice -\/ Francesco Sblendorio 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+23-\/06-\/2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Questo modulo fornisce funzionalità complete per la gestione della persistenza dei dati attraverso file binari, gestendo sia i videogame che le recensioni con operazioni di lettura, scrittura e modifica. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{file__manager_8h_a04bf7ce7e871c2ace62bb7eafcd1ac7f}\index{file\_manager.h@{file\_manager.h}!edit\_review\_file@{edit\_review\_file}}
+\index{edit\_review\_file@{edit\_review\_file}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{edit\_review\_file()}{edit\_review\_file()}}
+{\footnotesize\ttfamily \label{file__manager_8h_a04bf7ce7e871c2ace62bb7eafcd1ac7f} 
+int edit\+\_\+review\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Aggiorna il file delle recensioni con modifiche. 
+
+Riscrive completamente il file binario delle recensioni con i dati aggiornati dall\textquotesingle{}array in memoria, utilizzato dopo modifiche o eliminazioni.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reviews} & Array contenente le recensioni da salvare \\
+\hline
+{\em reviews\+\_\+count} & Numero di recensioni nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_ab3c7b5b89b27c86b47e0ba0ec95a3e56}\index{file\_manager.h@{file\_manager.h}!edit\_videogame\_file@{edit\_videogame\_file}}
+\index{edit\_videogame\_file@{edit\_videogame\_file}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{edit\_videogame\_file()}{edit\_videogame\_file()}}
+{\footnotesize\ttfamily \label{file__manager_8h_ab3c7b5b89b27c86b47e0ba0ec95a3e56} 
+int edit\+\_\+videogame\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Aggiorna il file dei videogame con modifiche. 
+
+Riscrive completamente il file binario dei videogame con i dati aggiornati dall\textquotesingle{}array in memoria, utilizzato dopo modifiche o eliminazioni.
+
+
+\begin{DoxyParams}{Parameters}
+{\em games} & Array contenente i videogame da salvare \\
+\hline
+{\em games\+\_\+count} & Numero di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_a68227890734ccc63ac52b7da3ea473ae}\index{file\_manager.h@{file\_manager.h}!last\_review\_id@{last\_review\_id}}
+\index{last\_review\_id@{last\_review\_id}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{last\_review\_id()}{last\_review\_id()}}
+{\footnotesize\ttfamily \label{file__manager_8h_a68227890734ccc63ac52b7da3ea473ae} 
+int last\+\_\+review\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ottiene l\textquotesingle{}ultimo ID recensione presente nel file. 
+
+Legge il file delle recensioni per determinare l\textquotesingle{}ID più alto attualmente utilizzato, per assegnare nuovi ID univoci.
+
+\begin{DoxyReturn}{Returns}
+int Ultimo ID utilizzato (0 se file vuoto, -\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_ac4db2ab46f8b9e3c5d03315507d81aad}\index{file\_manager.h@{file\_manager.h}!last\_videogame\_id@{last\_videogame\_id}}
+\index{last\_videogame\_id@{last\_videogame\_id}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{last\_videogame\_id()}{last\_videogame\_id()}}
+{\footnotesize\ttfamily \label{file__manager_8h_ac4db2ab46f8b9e3c5d03315507d81aad} 
+int last\+\_\+videogame\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ottiene l\textquotesingle{}ultimo ID videogame presente nel file. 
+
+Legge il file dei videogame per determinare l\textquotesingle{}ID più alto attualmente utilizzato, per assegnare nuovi ID univoci.
+
+\begin{DoxyReturn}{Returns}
+ultimo ID videogame presente nel file 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6}\index{file\_manager.h@{file\_manager.h}!read\_all\_reviews@{read\_all\_reviews}}
+\index{read\_all\_reviews@{read\_all\_reviews}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{read\_all\_reviews()}{read\_all\_reviews()}}
+{\footnotesize\ttfamily \label{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6} 
+int read\+\_\+all\+\_\+reviews (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{videogame\+\_\+id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Legge tutte le recensioni dal file binario. 
+
+Carica in memoria tutte le recensioni presenti nel file binario, indipendentemente dal videogame di appartenenza.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reviews} & Array di destinazione per le recensioni lette \\
+\hline
+{\em videogame\+\_\+id} & ID del videogame (parametro mantenuto per compatibilità) \\
+\hline
+{\em reviews\+\_\+count} & Puntatore al contatore delle recensioni caricate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di recensioni lette (-\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_ae214ea38c36d38f23cde0954f31a0efc}\index{file\_manager.h@{file\_manager.h}!read\_all\_videogames@{read\_all\_videogames}}
+\index{read\_all\_videogames@{read\_all\_videogames}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{read\_all\_videogames()}{read\_all\_videogames()}}
+{\footnotesize\ttfamily \label{file__manager_8h_ae214ea38c36d38f23cde0954f31a0efc} 
+int read\+\_\+all\+\_\+videogames (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Legge tutti i videogame dal file binario. 
+
+Carica in memoria tutti i videogame presenti nel file binario, popolando l\textquotesingle{}array fornito e aggiornando il contatore.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array di destinazione per i videogame letti \\
+\hline
+{\em games\+\_\+count} & Puntatore al contatore dei videogame caricati \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numero di videogame letti (-\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_ab9e78f5c770d97036908dd73938b8738}\index{file\_manager.h@{file\_manager.h}!read\_reviews@{read\_reviews}}
+\index{read\_reviews@{read\_reviews}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{read\_reviews()}{read\_reviews()}}
+{\footnotesize\ttfamily \label{file__manager_8h_ab9e78f5c770d97036908dd73938b8738} 
+int read\+\_\+reviews (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{videogame\+\_\+id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Legge le recensioni di un videogame specifico. 
+
+Carica in memoria tutte le recensioni associate a un determinato videogame, filtrando per videogame\+\_\+id.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reviews} & Array di destinazione per le recensioni lette \\
+\hline
+{\em videogame\+\_\+id} & ID del videogame di cui leggere le recensioni \\
+\hline
+{\em reviews\+\_\+count} & Puntatore al contatore delle recensioni caricate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_a960359971297b5ec04f90d522d95ae64}\index{file\_manager.h@{file\_manager.h}!write\_review\_file@{write\_review\_file}}
+\index{write\_review\_file@{write\_review\_file}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{write\_review\_file()}{write\_review\_file()}}
+{\footnotesize\ttfamily \label{file__manager_8h_a960359971297b5ec04f90d522d95ae64} 
+int write\+\_\+review\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{review}{}\end{DoxyParamCaption})}
+
+
+
+Scrive una recensione nel file binario. 
+
+Aggiunge una nuova recensione al file binario di persistenza, gestendo automaticamente l\textquotesingle{}apertura, scrittura e chiusura del file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em review} & Struttura \doxylink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review} da scrivere nel file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}
+\Hypertarget{file__manager_8h_ae878ae74c2be7030ca9febacd81b9b73}\index{file\_manager.h@{file\_manager.h}!write\_videogame\_file@{write\_videogame\_file}}
+\index{write\_videogame\_file@{write\_videogame\_file}!file\_manager.h@{file\_manager.h}}
+\doxysubsubsection{\texorpdfstring{write\_videogame\_file()}{write\_videogame\_file()}}
+{\footnotesize\ttfamily \label{file__manager_8h_ae878ae74c2be7030ca9febacd81b9b73} 
+int write\+\_\+videogame\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{game}{}\end{DoxyParamCaption})}
+
+
+
+Scrive un videogame nel file binario. 
+
+Aggiunge un nuovo videogame al file binario di persistenza, gestendo automaticamente l\textquotesingle{}apertura, scrittura e chiusura del file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & variabile di tipo \doxylink{struct_videogame}{Videogame} da scrivere nel file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}

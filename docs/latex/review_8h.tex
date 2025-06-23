@@ -1,0 +1,137 @@
+\doxysection{src/review.h File Reference}
+\hypertarget{review_8h}{}\label{review_8h}\index{src/review.h@{src/review.h}}
+
+
+Header file per la gestione delle recensioni dei videogame.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structreview}{review}}
+\begin{DoxyCompactList}\small\item\em Struttura che rappresenta una recensione di un videogame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{review_8h_a05c68bcda746654c6bdb115f467b2d14}\label{review_8h_a05c68bcda746654c6bdb115f467b2d14} 
+\#define {\bfseries MAX\+\_\+\+COMMENT\+\_\+\+SIZE}~200
+\begin{DoxyCompactList}\small\item\em Dimensione massima per i commenti delle recensioni. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structreview}{review}} \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}
+\begin{DoxyCompactList}\small\item\em Struttura che rappresenta una recensione di un videogame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{review_8h_a49b030f11a9a94c5a1aa3cab9e963c02}{add\+\_\+review}} (int videogame\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Aggiunge una nuova recensione per un videogame. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{review_8h_a4ef21e6660daade181bb2e359f915351}{average\+\_\+review}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int reviews\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Calcola la media delle valutazioni per un videogame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{review_8h_a1c8e6a2327db2901d5669a304b558a84}{view\+\_\+reviews}} (int videogame\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Visualizza tutte le recensioni di un videogame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{review_8h_a9c97e427c2bf23f32577e9a16c961aa9}{delete\+\_\+review}} (int videogame\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Elimina una recensione di un videogame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file per la gestione delle recensioni dei videogame. 
+
+\begin{DoxyAuthor}{Author}
+Francesco Pice -\/ Francesco Sblendorio 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+23-\/06-\/2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{review_8h_ad951bf360078c6822c7c890e1913a425}\index{review.h@{review.h}!Review@{Review}}
+\index{Review@{Review}!review.h@{review.h}}
+\doxysubsubsection{\texorpdfstring{Review}{Review}}
+{\footnotesize\ttfamily \label{review_8h_ad951bf360078c6822c7c890e1913a425} 
+typedef struct \mbox{\hyperlink{structreview}{review}} \mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}
+
+
+
+Struttura che rappresenta una recensione di un videogame. 
+
+Questa struttura contiene tutte le informazioni necessarie per memorizzare una recensione associata a un videogame specifico. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{review_8h_a49b030f11a9a94c5a1aa3cab9e963c02}\index{review.h@{review.h}!add\_review@{add\_review}}
+\index{add\_review@{add\_review}!review.h@{review.h}}
+\doxysubsubsection{\texorpdfstring{add\_review()}{add\_review()}}
+{\footnotesize\ttfamily \label{review_8h_a49b030f11a9a94c5a1aa3cab9e963c02} 
+void add\+\_\+review (\begin{DoxyParamCaption}\item[{int}]{videogame\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge una nuova recensione per un videogame. 
+
+Questa funzione permette di inserire una nuova recensione per un videogame specifico, richiedendo all\textquotesingle{}utente di inserire la valutazione e il commento.
+
+
+\begin{DoxyParams}{Parameters}
+{\em videogame\+\_\+id} & ID del videogame da recensire \\
+\hline
+\end{DoxyParams}
+\Hypertarget{review_8h_a4ef21e6660daade181bb2e359f915351}\index{review.h@{review.h}!average\_review@{average\_review}}
+\index{average\_review@{average\_review}!review.h@{review.h}}
+\doxysubsubsection{\texorpdfstring{average\_review()}{average\_review()}}
+{\footnotesize\ttfamily \label{review_8h_a4ef21e6660daade181bb2e359f915351} 
+double average\+\_\+review (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Calcola la media delle valutazioni per un videogame. 
+
+Questa funzione elabora tutte le recensioni fornite e calcola la valutazione media, utile per ottenere un punteggio complessivo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reviews} & Array contenente le recensioni da elaborare \\
+\hline
+{\em reviews\+\_\+count} & Numero di recensioni nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Valore medio delle valutazioni (0.\+0 se nessuna recensione) 
+\end{DoxyReturn}
+\Hypertarget{review_8h_a9c97e427c2bf23f32577e9a16c961aa9}\index{review.h@{review.h}!delete\_review@{delete\_review}}
+\index{delete\_review@{delete\_review}!review.h@{review.h}}
+\doxysubsubsection{\texorpdfstring{delete\_review()}{delete\_review()}}
+{\footnotesize\ttfamily \label{review_8h_a9c97e427c2bf23f32577e9a16c961aa9} 
+void delete\+\_\+review (\begin{DoxyParamCaption}\item[{int}]{videogame\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Elimina una recensione di un videogame. 
+
+Questa funzione rimuove una recensione specifica associata al videogame indicato, identificandola tramite selezione dell\textquotesingle{}utente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em videogame\+\_\+id} & ID del videogame da cui eliminare la recensione \\
+\hline
+\end{DoxyParams}
+\Hypertarget{review_8h_a1c8e6a2327db2901d5669a304b558a84}\index{review.h@{review.h}!view\_reviews@{view\_reviews}}
+\index{view\_reviews@{view\_reviews}!review.h@{review.h}}
+\doxysubsubsection{\texorpdfstring{view\_reviews()}{view\_reviews()}}
+{\footnotesize\ttfamily \label{review_8h_a1c8e6a2327db2901d5669a304b558a84} 
+void view\+\_\+reviews (\begin{DoxyParamCaption}\item[{int}]{videogame\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza tutte le recensioni di un videogame. 
+
+Questa funzione mostra l\textquotesingle{}elenco completo delle recensioni associate al videogame specificato, inclusi valutazioni e commenti.
+
+
+\begin{DoxyParams}{Parameters}
+{\em videogame\+\_\+id} & ID del videogame di cui visualizzare le recensioni \\
+\hline
+\end{DoxyParams}

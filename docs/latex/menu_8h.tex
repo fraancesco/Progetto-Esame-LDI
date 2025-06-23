@@ -1,0 +1,111 @@
+\doxysection{src/menu.h File Reference}
+\hypertarget{menu_8h}{}\label{menu_8h}\index{src/menu.h@{src/menu.h}}
+
+
+Header file per la gestione dei menu dell\textquotesingle{}applicazione.  
+
+
+{\ttfamily \#include "{}review.\+h"{}}\newline
+{\ttfamily \#include "{}videogame.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a28ea71acb184e811a77ff37e672c9f13}{order\+\_\+menu}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Menu per le opzioni di ordinamento e visualizzazione. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a585ca281fb28175517f36b9a3fdf1d21}{user}} ()
+\begin{DoxyCompactList}\small\item\em Menu principale per le funzioni utente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a058d67da96727cd260cfdfcd9554a06a}{stats}} ()
+\begin{DoxyCompactList}\small\item\em Visualizza le statistiche del sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a0b5d2f98ef936c8d46e85ed570910b10}{crud\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu per le operazioni CRUD sui videogame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a8b6b16a59e38f8caaf28060a7c3f53a3}{admin}} ()
+\begin{DoxyCompactList}\small\item\em Menu principale per le funzioni di amministrazione. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a60de64d75454385b23995437f1d72669}{start}} ()
+\begin{DoxyCompactList}\small\item\em Menu di avvio per la selezione del ruolo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file per la gestione dei menu dell\textquotesingle{}applicazione. 
+
+\begin{DoxyAuthor}{Author}
+Francesco Pice -\/ Francesco Sblendorio 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+23-\/06-\/2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+Questo modulo contiene tutte le funzioni per la gestione dell\textquotesingle{}interfaccia utente e dei menu di navigazione del sistema di gestione videogame, con interfacce differenziate per amministratori e utenti. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{menu_8h_a8b6b16a59e38f8caaf28060a7c3f53a3}\index{menu.h@{menu.h}!admin@{admin}}
+\index{admin@{admin}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{admin()}{admin()}}
+{\footnotesize\ttfamily \label{menu_8h_a8b6b16a59e38f8caaf28060a7c3f53a3} 
+void admin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Menu principale per le funzioni di amministrazione. 
+
+Presenta il menu principale dedicato agli amministratori con tutte le opzioni di gestione avanzata del sistema, incluse funzioni CRUD, statistiche e configurazioni amministrative. \Hypertarget{menu_8h_a0b5d2f98ef936c8d46e85ed570910b10}\index{menu.h@{menu.h}!crud\_menu@{crud\_menu}}
+\index{crud\_menu@{crud\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{crud\_menu()}{crud\_menu()}}
+{\footnotesize\ttfamily \label{menu_8h_a0b5d2f98ef936c8d46e85ed570910b10} 
+void crud\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Menu per le operazioni CRUD sui videogame. 
+
+Visualizza il menu dedicato alle operazioni di gestione dei videogame\+: Create (aggiungi), Read (visualizza), Update (modifica), Delete (elimina). Questo menu è tipicamente accessibile solo agli amministratori. \Hypertarget{menu_8h_a28ea71acb184e811a77ff37e672c9f13}\index{menu.h@{menu.h}!order\_menu@{order\_menu}}
+\index{order\_menu@{order\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{order\_menu()}{order\_menu()}}
+{\footnotesize\ttfamily \label{menu_8h_a28ea71acb184e811a77ff37e672c9f13} 
+void order\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Menu per le opzioni di ordinamento e visualizzazione. 
+
+Presenta le diverse modalità di ordinamento e visualizzazione dei videogame\+: per vendite (bestseller), per recensioni, alfabetico, e altre opzioni di filtraggio e presentazione.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente tutti i videogame da ordinare/visualizzare \\
+\hline
+{\em games\+\_\+count} & Numero totale di videogame nell\textquotesingle{}array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{menu_8h_a60de64d75454385b23995437f1d72669}\index{menu.h@{menu.h}!start@{start}}
+\index{start@{start}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{menu_8h_a60de64d75454385b23995437f1d72669} 
+void start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Menu di avvio per la selezione del ruolo. 
+
+Primo menu mostrato all\textquotesingle{}avvio dell\textquotesingle{}applicazione che permette di selezionare il tipo di accesso\+: amministratore o utente normale. Determina quale set di funzionalità sarà disponibile nella sessione. \Hypertarget{menu_8h_a058d67da96727cd260cfdfcd9554a06a}\index{menu.h@{menu.h}!stats@{stats}}
+\index{stats@{stats}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{stats()}{stats()}}
+{\footnotesize\ttfamily \label{menu_8h_a058d67da96727cd260cfdfcd9554a06a} 
+void stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza le statistiche del sistema. 
+
+Mostra statistiche generali sui videogame presenti nel sistema, come numero totale di giochi, generi più popolari, media vendite, e altre informazioni aggregate utili per analisi e reportistica. \Hypertarget{menu_8h_a585ca281fb28175517f36b9a3fdf1d21}\index{menu.h@{menu.h}!user@{user}}
+\index{user@{user}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{user()}{user()}}
+{\footnotesize\ttfamily \label{menu_8h_a585ca281fb28175517f36b9a3fdf1d21} 
+void user (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Menu principale per le funzioni utente. 
+
+Presenta il menu principale dedicato agli utenti finali con opzioni per la ricerca, visualizzazione, acquisto di videogame e gestione delle recensioni personali. 

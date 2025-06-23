@@ -1,0 +1,122 @@
+\doxysection{src/videogame.h File Reference}
+\hypertarget{videogame_8h}{}\label{videogame_8h}\index{src/videogame.h@{src/videogame.h}}
+
+
+Header file per la gestione dei videogiochi.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_videogame}{Videogame}}
+\begin{DoxyCompactList}\small\item\em Struttura che rappresenta un videogame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{videogame_8h_a220f38b26fa99d4d91b574f42d991516}\label{videogame_8h_a220f38b26fa99d4d91b574f42d991516} 
+\#define {\bfseries MAX\+\_\+\+STRING\+\_\+\+SIZE}~100
+\begin{DoxyCompactList}\small\item\em Dimensione massima per le stringhe. \end{DoxyCompactList}\item 
+\Hypertarget{videogame_8h_a40af4217190d59d7145e58a278f9f87d}\label{videogame_8h_a40af4217190d59d7145e58a278f9f87d} 
+\#define {\bfseries MAX\+\_\+\+ARRAY\+\_\+\+SIZE}~100
+\begin{DoxyCompactList}\small\item\em Dimensione massima per gli array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{videogame_8h_a661ca04245d436cd310b8241bb3bc217}{add\+\_\+videogame}} ()
+\begin{DoxyCompactList}\small\item\em Aggiunge un nuovo videogame al catalogo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{videogame_8h_a6cdf9be7a9b02786fc6223d4ecf3f89d}{view\+\_\+all\+\_\+videogame}} (\mbox{\hyperlink{struct_videogame}{Videogame}} all\+\_\+games\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}max\+\_\+id, int \texorpdfstring{$\ast$}{*}games\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Visualizza tutti i videogame presenti nel sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{videogame_8h_ab9bf198fd76449f46ccebe5064a1e0ff}{edit\+\_\+videogame}} ()
+\begin{DoxyCompactList}\small\item\em Modifica le informazioni di un videogame esistente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{videogame_8h_a340f604672a4f5c50641675184f27b39}{delete\+\_\+videogame}} ()
+\begin{DoxyCompactList}\small\item\em Elimina un videogame dal catalogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{videogame_8h_aa16be94f55bef6f92666dca3017622ca}{buy\+\_\+videogame}} (int videogame\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Simula l\textquotesingle{}acquisto di un videogame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file per la gestione dei videogiochi. 
+
+\begin{DoxyAuthor}{Author}
+Francesco Pice -\/ Francesco Sblendorio 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+23-\/06-\/2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{videogame_8h_a661ca04245d436cd310b8241bb3bc217}\index{videogame.h@{videogame.h}!add\_videogame@{add\_videogame}}
+\index{add\_videogame@{add\_videogame}!videogame.h@{videogame.h}}
+\doxysubsubsection{\texorpdfstring{add\_videogame()}{add\_videogame()}}
+{\footnotesize\ttfamily \label{videogame_8h_a661ca04245d436cd310b8241bb3bc217} 
+void add\+\_\+videogame (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Aggiunge un nuovo videogame al catalogo. 
+
+Questa funzione permette di inserire un nuovo videogame nella collezione, richiedendo all\textquotesingle{}utente di inserire tutte le informazioni necessarie. \Hypertarget{videogame_8h_aa16be94f55bef6f92666dca3017622ca}\index{videogame.h@{videogame.h}!buy\_videogame@{buy\_videogame}}
+\index{buy\_videogame@{buy\_videogame}!videogame.h@{videogame.h}}
+\doxysubsubsection{\texorpdfstring{buy\_videogame()}{buy\_videogame()}}
+{\footnotesize\ttfamily \label{videogame_8h_aa16be94f55bef6f92666dca3017622ca} 
+void buy\+\_\+videogame (\begin{DoxyParamCaption}\item[{int}]{videogame\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Simula l\textquotesingle{}acquisto di un videogame. 
+
+Questa funzione gestisce la logica per l\textquotesingle{}acquisto di un videogame, aggiornando il contatore delle copie vendute.
+
+
+\begin{DoxyParams}{Parameters}
+{\em videogame\+\_\+id} & ID del videogame da acquistare \\
+\hline
+\end{DoxyParams}
+\Hypertarget{videogame_8h_a340f604672a4f5c50641675184f27b39}\index{videogame.h@{videogame.h}!delete\_videogame@{delete\_videogame}}
+\index{delete\_videogame@{delete\_videogame}!videogame.h@{videogame.h}}
+\doxysubsubsection{\texorpdfstring{delete\_videogame()}{delete\_videogame()}}
+{\footnotesize\ttfamily \label{videogame_8h_a340f604672a4f5c50641675184f27b39} 
+void delete\+\_\+videogame (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Elimina un videogame dal catalogo. 
+
+Questa funzione rimuove definitivamente un videogame dal catalogo, identificandolo tramite il suo ID, eliminandone relative recensionni . \Hypertarget{videogame_8h_ab9bf198fd76449f46ccebe5064a1e0ff}\index{videogame.h@{videogame.h}!edit\_videogame@{edit\_videogame}}
+\index{edit\_videogame@{edit\_videogame}!videogame.h@{videogame.h}}
+\doxysubsubsection{\texorpdfstring{edit\_videogame()}{edit\_videogame()}}
+{\footnotesize\ttfamily \label{videogame_8h_ab9bf198fd76449f46ccebe5064a1e0ff} 
+void edit\+\_\+videogame (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Modifica le informazioni di un videogame esistente. 
+
+Questa funzione permette di modificare i dati di un videogame già presente nel catalogo, identificandolo tramite il suo ID. \Hypertarget{videogame_8h_a6cdf9be7a9b02786fc6223d4ecf3f89d}\index{videogame.h@{videogame.h}!view\_all\_videogame@{view\_all\_videogame}}
+\index{view\_all\_videogame@{view\_all\_videogame}!videogame.h@{videogame.h}}
+\doxysubsubsection{\texorpdfstring{view\_all\_videogame()}{view\_all\_videogame()}}
+{\footnotesize\ttfamily \label{videogame_8h_a6cdf9be7a9b02786fc6223d4ecf3f89d} 
+int view\+\_\+all\+\_\+videogame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_videogame}{Videogame}}}]{all\+\_\+games}{\mbox{[}$\,$\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{max\+\_\+id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{games\+\_\+count}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza tutti i videogame presenti nel sistema. 
+
+Questa funzione mostra l\textquotesingle{}elenco completo di tutti i videogame memorizzati nel sistema ai fini di sceglierne l\textquotesingle{}id per eventuali operazioni.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+\_\+games} & Array contenente tutti i videogame \\
+\hline
+{\em max\+\_\+id} & Indirizzo del massimo ID \\
+\hline
+{\em games\+\_\+count} & Indirizzo del numero di videogame \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Codice di ritorno (0 se successo, -\/1 se errore) 
+\end{DoxyReturn}

@@ -1,0 +1,37 @@
+\doxysection{file\+\_\+manager.\+h}
+\hypertarget{file__manager_8h_source}{}\label{file__manager_8h_source}\index{src/file\_manager.h@{src/file\_manager.h}}
+\mbox{\hyperlink{file__manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ FILE\_MANAGER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ FILE\_MANAGER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{videogame_8h}{videogame.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{review_8h}{review.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PATH\_VIDEOGAME\_FILE\ "{}../data/videogiochi.bin"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PATH\_REVIEW\_FILE\ "{}../data/recensioni.bin"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_ae878ae74c2be7030ca9febacd81b9b73}{write\_videogame\_file}}(\mbox{\hyperlink{struct_videogame}{Videogame}}\ game);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_ac4db2ab46f8b9e3c5d03315507d81aad}{last\_videogame\_id}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_ae214ea38c36d38f23cde0954f31a0efc}{read\_all\_videogames}}(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ *games\_count);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_ab3c7b5b89b27c86b47e0ba0ec95a3e56}{edit\_videogame\_file}}(\mbox{\hyperlink{struct_videogame}{Videogame}}\ games[],\ \textcolor{keywordtype}{int}\ games\_count);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_a68227890734ccc63ac52b7da3ea473ae}{last\_review\_id}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_a960359971297b5ec04f90d522d95ae64}{write\_review\_file}}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ \mbox{\hyperlink{structreview}{review}});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_a04bf7ce7e871c2ace62bb7eafcd1ac7f}{edit\_review\_file}}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ reviews\_count);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6}{read\_all\_reviews}}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ videogame\_id,\ \textcolor{keywordtype}{int}\ *reviews\_count);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__manager_8h_ab9e78f5c770d97036908dd73938b8738}{read\_reviews}}(\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}\ reviews[],\ \textcolor{keywordtype}{int}\ videogame\_id,\ \textcolor{keywordtype}{int}\ *reviews\_count);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
