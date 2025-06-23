@@ -48,6 +48,11 @@ void add_review(int videogame_id){
 //somma tutte le valutazioni se presenti e fa la media
 double average_review(Review reviews[], int reviews_count){
     double average = 0.0;
+    
+    if(reviews_count == 0){
+        return 0.0;
+    }
+
     for (int i = 0; i < reviews_count; i++) {
         average += reviews[i].value;
     }

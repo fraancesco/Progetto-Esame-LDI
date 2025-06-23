@@ -43,9 +43,8 @@ int last_videogame_id() {
     Videogame last_record;
     FILE *file = fopen(PATH_VIDEOGAME_FILE, "rb");
 
-    // controlla se il file è stato aperto correttamente
     if (file == NULL) {
-        return -1;
+        return 0; // se il file è vuoto, ritorna 0
     }
 
     fseek(file, 0, SEEK_END);
@@ -157,7 +156,7 @@ int write_review_file(Review review) {
 
 // aggiorna il file delle recensioni con modifiche
 int edit_review_file(Review reviews[], int reviews_count) {
-    FILE *file = fopen(PATH_VIDEOGAME_FILE, "wb");
+    FILE *file = fopen(PATH_REVIEW_FILE, "wb");
 
     // controlla se il file è stato aperto correttamente
     if (file == NULL) {
@@ -167,7 +166,7 @@ int edit_review_file(Review reviews[], int reviews_count) {
     
     // scrive tutte le recensioni presenti nell'array modificato nel file
     for(int i = 0; i < reviews_count; i++){
-        fwrite(&reviews[i], sizeof(Videogame), 1, file);
+        fwrite(&reviews[i], sizeof(Review), 1, file);
     }
 
     fclose(file);
@@ -195,7 +194,6 @@ int read_all_reviews(Review reviews[], int videogame_id, int *reviews_count) {
     }
 
     // legge tutte le recensioni nel file
-    *reviews_count = 0;
     fseek(file, 0, SEEK_SET);
     for(int i = 0; i < *reviews_count; i++){
         fread(&reviews[i], sizeof(Review), 1, file);
@@ -209,6 +207,7 @@ int read_reviews(Review reviews[], int videogame_id, int *reviews_count) {
     Review temp;
     int all_reviews_number;
     FILE *file = fopen(PATH_REVIEW_FILE, "rb");
+    *reviews_count = 0;
 
     // controlla se il file è stato aperto correttamente
     if (file == NULL) {
@@ -227,7 +226,6 @@ int read_reviews(Review reviews[], int videogame_id, int *reviews_count) {
     }
 
     // legge le recensioni presenti nel file, filtrandole secondo l'ID del videogioco
-    *reviews_count = 0;
     fseek(file, 0, SEEK_SET);
     for(int i = 0; i < all_reviews_number; i++){
         fread(&temp, sizeof(Review), 1, file);
