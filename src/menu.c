@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "menu.h"
 #include "videogame.h"
-#include "research_and_order.h"
+#include "research_and_sorting.h"
 #include "review.h"
 
 //Mostra menu degli ordinamenti e fa scegliere come lo si vuole ordinare

@@ -1,5 +1,5 @@
 /**
- * @file research.h
+ * @file research_and_sorting.h
  * @brief Header file per la ricerca e l'ordinamento dei videogame
  * @author Fractesco Pice - Francesco Sblendorio
  * @date 23-06-2025
