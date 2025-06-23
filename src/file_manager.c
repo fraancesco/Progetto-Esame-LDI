@@ -55,7 +55,7 @@ int last_videogame_id() {
     }
     
     // legge l'ultimo record presente nel file
-    fseek(file, -sizeof(Videogame), SEEK_END);
+    fseek(file, -(long)sizeof(Videogame), SEEK_END);
     fread(&last_record, sizeof(Videogame), 1, file);
     fclose(file);
     
@@ -130,7 +130,7 @@ int last_review_id() {
     }
     
     // legge l'ultimo record presente nel file
-    fseek(file, -sizeof(Review), SEEK_END);
+    fseek(file, -(long)sizeof(Review), SEEK_END);
     fread(&last_record, sizeof(Review), 1, file);
     fclose(file);
     
