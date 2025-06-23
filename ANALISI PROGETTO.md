@@ -123,3 +123,19 @@ Finito la procedura, il file viene sovrascritto e il gioco eliminato con success
 > - Molte funzioni utilizzano, come già indicato nella nota precedente, altre funzioni più generalizzate, per non creare un analisi ridondante è stato ritenuto opportuno non citare una stessa funzione, qual ora venga utilizzata, molteplici volte.
    
 ## Test Unity:
+Sono stati implementati dei test unity ai fini di verificare la correttezza delle funzioni che restituiscono un risultato. Di seguito sono riporati i test effettuati:
+
+-  `test_last_videogame_id_on_empty_file`: Verifica che l'ID restituito per un file di videogiochi vuoto o inesistente sia correttamente 0.
+- `test_write_and_read_single_videogame`: Controlla la scrittura e la successiva rilettura di un singolo videogioco per verificarne l'integrità e la persistenza su file.
+- `test_edit_videogame_file`: Testa la modifica di un videogioco, salvando le modifiche su file e verificando che siano state mantenute correttamente.
+- `test_average_review_with_no_reviews`: Calcola la media delle recensioni su un set vuoto, verificando che il risultato sia 0 come da comportamento atteso.
+- `test_average_review_with_multiple_reviews`: Calcola la media delle recensioni su un set di dati multipli per confermare l'accuratezza dell'algoritmo.
+- `test_delete_review_logic`: Simula la logica di cancellazione di una recensione, verificando che il file venga aggiornato con un numero inferiore di record.
+- `test_buy_videogame`: Verifica la funzionalità di acquisto, controllando che il contatore delle copie vendute di un gioco venga incrementato correttamente dopo la chiamata alla funzione.
+- `test_search_title_exact_match`: Testa la ricerca per titolo con una corrispondenza esatta e case-insensitive per assicurare che venga restituito il gioco corretto.
+- `test_search_title_no_match`: Verifica che la ricerca per un titolo non esistente nel catalogo non produca alcun risultato.
+- `test_search_genre_partial_match`: Testa la ricerca per genere usando una parola chiave parziale per verificare il corretto funzionamento del match parziale.
+- `test_search_year`: Controlla la ricerca per anno di pubblicazione per filtrare i giochi e restituire solo quelli corrispondenti.
+- `test_alfabetical_sorter`: Verifica il corretto ordinamento alfabetico dei videogiochi in base al titolo.
+- `test_bestseller_sorter`: Verifica l'ordinamento dei giochi per numero di copie vendute (bestseller) in ordine decrescente.
+- `test_best_reviewed_sorter`: Verifica l'ordinamento dei giochi in base alla media delle loro recensioni, dal più apprezzato al meno apprezzato.

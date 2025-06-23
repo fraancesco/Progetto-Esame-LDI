@@ -1,19 +1,3 @@
-/**
- * @file test_videogame_suite.c
- * @brief Suite di test unitari per il sistema di gestione dei videogiochi.
- * @author Francesco Pice - Francesco Sblendorio
- * @date 23-06-2025
- * @version 1.1
- *
- * @note Questo file contiene tutti i test unitari per le funzionalità del progetto.
- * Include tutti i file sorgente per la compilazione in un unico passaggio.
- * Per compilare ed eseguire: gcc test_videogame_suite.c -o test_runner && ./test_runner
- */
-
-/*******************************************************************************
- * INCLUSIONI FRAMEWORK E LIBRERIE DI PROGETTO
- ******************************************************************************/
-
 // Abilita il supporto per i double in Unity
 #define UNITY_INCLUDE_DOUBLE
 
@@ -23,7 +7,6 @@
 #include "unity_internals.h"
 
 // --- Inclusione Header del Progetto ---
-// Si trovano nella cartella genitore (src)
 #include "../file_manager.h"
 #include "../menu.h"
 #include "../research_and_sorting.h"
@@ -31,14 +14,12 @@
 #include "../videogame.h"
 
 // --- Inclusione Sorgenti per la Compilazione ---
-// NOTA: Includere i .c dopo tutti gli header per evitare problemi di dipendenze.
 #undef PATH_VIDEOGAME_FILE
 #define PATH_VIDEOGAME_FILE "../../data/test_videogiochi.bin"
 
 #undef PATH_REVIEW_FILE
 #define PATH_REVIEW_FILE "../../data/test_recensioni.bin"
 
-// Dalla cartella genitore (src)
 #include "../file_manager.c"
 #include "../review.c"
 #include "../videogame.c"
@@ -46,34 +27,24 @@
 #include "../menu.c"
 
 
-/*******************************************************************************
+/*
  * FUNZIONI DI SETUP E TEARDOWN
- ******************************************************************************/
-
-/**
- * @brief Funzione eseguita prima di ogni test.
- *
- * Pulisce i file di test per garantire che ogni test venga eseguito
- * in uno stato pulito e isolato.
+ *  Pulisce i file di test per garantire che ogni test venga eseguito
+ *  in uno stato pulito e isolato.
  */
 void setUp(void) {
     remove(PATH_VIDEOGAME_FILE);
     remove(PATH_REVIEW_FILE);
 }
 
-/**
- * @brief Funzione eseguita dopo ogni test.
- *
- * Pulisce i file di test per non lasciare artefatti dopo l'esecuzione.
- */
 void tearDown(void) {
     remove(PATH_VIDEOGAME_FILE);
     remove(PATH_REVIEW_FILE);
 }
 
-/*******************************************************************************
+/*
  * PREPARAZIONE DATI DI TEST
- ******************************************************************************/
+ */
 
 // Funzione helper per creare un set di dati di videogiochi standard per i test
 void create_test_videogame_dataset() {
@@ -104,14 +75,16 @@ void create_test_review_dataset() {
     fclose(file);
 }
 
-/*******************************************************************************
+/*
  * TEST PER FILE_MANAGER.C
- ******************************************************************************/
+ */
 
+// Verifica che l'ID restituito per un file di videogiochi vuoto o inesistente sia correttamente 0.
 void test_last_videogame_id_on_empty_file(void) {
     TEST_ASSERT_EQUAL_INT(0, last_videogame_id());
 }
 
+// Verifica la scrittura e la successiva rilettura di un singolo videogioco per verificare che siano state mantenute correttamente.
 void test_write_and_read_single_videogame(void) {
     Videogame game = {1, 2025, 0, "Test Game", "Test Editor", "Test Dev", "Desc", "Genre"};
     TEST_ASSERT_EQUAL_INT(0, write_videogame_file(game));
@@ -134,6 +107,7 @@ void test_write_and_read_single_videogame(void) {
     TEST_ASSERT_EQUAL_INT(-1, write_videogame_file(game2));
 } Non verificabile, dovrebbe cambiare il path del file di test*/
 
+// Testa la modifica di un videogioco, salvando le modifiche su file e verificando che siano state mantenute correttamente.
 void test_edit_videogame_file(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -154,12 +128,14 @@ void test_edit_videogame_file(void) {
  * TEST PER REVIEW.C
  ******************************************************************************/
 
+// Verifica che la media di un set vuoto, verificando che il risultato sia 0 come da comportamento atteso.
 void test_average_review_with_no_reviews(void) {
     Review reviews[1];
 
     TEST_ASSERT_EQUAL_DOUBLE(0.0, average_review(reviews, 0));
 }
 
+// Verifica la correttezza dell'algoritmo per un set di dati multipli per controllare l'accuratezza dell'algoritmo.
 void test_average_review_with_multiple_reviews(void) {
     Review reviews[] = {
         {1, 1, 5.0, ""},
@@ -170,6 +146,7 @@ void test_average_review_with_multiple_reviews(void) {
     TEST_ASSERT_EQUAL_DOUBLE(expected_avg, average_review(reviews, 3));
 }
 
+// Verifica il corretto ordinamento alfabetico dei videogiochi in base al titolo.
 void test_delete_review_logic(void) {
     create_test_review_dataset();
     Review all_reviews[MAX_ARRAY_SIZE];
@@ -210,6 +187,7 @@ void test_delete_review_logic(void) {
  * TEST PER VIDEOGAME.C
  ******************************************************************************/
 
+// Verifica la funzionalità di acquisto, controllando che il contatore delle copie vendute di un gioco venga incrementato correttamente dopo la chiamata alla funzione.
 void test_buy_videogame(void) {
     create_test_videogame_dataset();
     
@@ -226,6 +204,7 @@ void test_buy_videogame(void) {
  * TEST PER RESEARCH_AND_SORTING.C
  ******************************************************************************/
 
+// Verifica la ricerca per titolo con una corrispondenza esatta e case-insensitive per assicurare che venga restituito il gioco corretto.
 void test_search_title_exact_match(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE], temp[MAX_ARRAY_SIZE];
@@ -238,6 +217,7 @@ void test_search_title_exact_match(void) {
     TEST_ASSERT_EQUAL_STRING("Elden Ring", temp[0].title);
 }
 
+// Verifica che la ricerca per un titolo non esistente nel catalogo non produce alcun risultato.
 void test_search_title_no_match(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE], temp[MAX_ARRAY_SIZE];
@@ -249,6 +229,7 @@ void test_search_title_no_match(void) {
     TEST_ASSERT_EQUAL_INT(0, found);
 }
 
+// Verifica la ricerca per genere usando una parola chiave parziale per verificare il corretto funzionamento del match parziale.
 void test_search_genre_partial_match(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE], temp[MAX_ARRAY_SIZE];
@@ -261,6 +242,7 @@ void test_search_genre_partial_match(void) {
     TEST_ASSERT_EQUAL_STRING("Red Dead Redemption 2", temp[0].title);
 }
 
+// Controlla la ricerca per anno di pubblicazione per filtrare i giochi e restituire solo quelli corrispondenti.
 void test_search_year(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE], temp[MAX_ARRAY_SIZE];
@@ -273,6 +255,7 @@ void test_search_year(void) {
     TEST_ASSERT_EQUAL_STRING("Red Dead Redemption 2", temp[0].title);
 }
 
+// Verifica il corretto ordinamento alfabetico dei videogiochi in base al titolo.
 void test_alfabetical_sorter(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -287,6 +270,7 @@ void test_alfabetical_sorter(void) {
     TEST_ASSERT_EQUAL_STRING("Skyrim", all_games[3].title);
 }
 
+// Verifica l'ordinamento dei giochi per numero di copie vendute (bestseller) in ordine decrescente.
 void test_bestseller_sorter(void) {
     create_test_videogame_dataset();
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -301,6 +285,7 @@ void test_bestseller_sorter(void) {
     TEST_ASSERT_EQUAL_STRING("Baldur's Gate 3", all_games[3].title);
 }
 
+// Verifica l'ordinamento dei giochi in base alla media delle loro recensioni, dal più apprezzato al meno apprezzato.
 void test_best_reviewed_sorter(void) {
     create_test_videogame_dataset();
     create_test_review_dataset();
