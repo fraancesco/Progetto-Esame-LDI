@@ -7,6 +7,8 @@
 #include "review.h"
 #include "menu.h"
 
+//scorre tutti i videogame, converte il suo editore in una stringa tutta minuscola e la confronta con quella cercata
+//facciamo la stessa cosa per sviluppatore, genere e titolo
 int search_editor(char keyword[], int games_count, Videogame all_games[], Videogame temp[]){
     int index = 0;
     char editor[MAX_STRING_SIZE];
@@ -94,6 +96,7 @@ int search_genre(char keyword[], int games_count, Videogame all_games[], Videoga
 
     return index;
 }
+//Confronta l'anno inserito con quelli presenti
 int search_year(char keyword[], int games_count, Videogame all_games[], Videogame temp[]){
     int index = 0;
     int year = atoi(keyword);
@@ -138,6 +141,7 @@ int search_title(char keyword[], int games_count, Videogame all_games[], Videoga
     return index;
 }
 
+//Stampa tutte le informazioni del/i videgame per l'amministratore
 void show_videogame_admin(Videogame all_games[], int games_count){
     if (games_count == 1) {
         printf("--------Videogioco Trovato--------\n");
@@ -160,6 +164,8 @@ void show_videogame_admin(Videogame all_games[], int games_count){
     }
 }
 
+//Stampa le informazioni del titolo,sviluppatore, genere e media recensioni
+//Poi fa scegliere se acquistarlo controllando che abbiano scritto correttamente, altrimenti da errore
 void show_videogame_user(Videogame all_games[], int games_count){
     Review reviews[MAX_ARRAY_SIZE];
     int reviews_count;
@@ -205,6 +211,8 @@ void show_videogame_user(Videogame all_games[], int games_count){
     }
 }
 
+//Ricerca nella parte dell'amministratore, tramite una parola chiave,
+// il titolo del gioco e se non corrisponde ad un titolo prova per anche gli altri criteri
 void search_videogame_admin(){
     char keyword[MAX_STRING_SIZE], option;
     int c, games_count, too_long, found = 0;
@@ -253,7 +261,7 @@ void search_videogame_admin(){
     }
 }
 
-// TODO: implementare la ricerca per editore, sviluppatore, genere e anno di pubblicazione
+//stesso identico criterio utilizzato per l'admin
 void search_videogame_user(){
     char keyword[MAX_STRING_SIZE], option;
     int c, games_count, too_long, reviews_count, found = 0;
@@ -303,6 +311,7 @@ void search_videogame_user(){
     }
 }
 
+//mostra tutti i videogame e fa scegliere secondo quale ordine li vuole vedere
 void show_all_videogames(){
     int games_count, reviews_count;
     Videogame all_games[MAX_ARRAY_SIZE];
@@ -333,6 +342,7 @@ void show_all_videogames(){
     }while(option != 'y' && option != 'Y' && option != 'n' && option != 'N');
 }
 
+//funzioni di ordinamento dei vari criteri
 void bestseller_sorter(Videogame all_games[], int games_count){
     int i, j;
     Videogame temp;
@@ -381,6 +391,7 @@ void alfabetical_sorter(Videogame all_games[], int games_count){
     }
 }
 
+//funzione di visualizzazione dei criteri ordinati
 void bestseller_order(Videogame all_games[], int games_count){
     bestseller_sorter(all_games, games_count);
 
@@ -417,6 +428,7 @@ void alfabetical_order(Videogame all_games[], int games_count){
     }
 }
 
+//Mostra i videogame più venduti
 void top_seller(){
     Review reviews[MAX_ARRAY_SIZE];
     Videogame all_games[MAX_ARRAY_SIZE] = {0};
@@ -441,6 +453,7 @@ void top_seller(){
     }
 }
 
+//Mostra i videogame meglio recensiti
 void top_reviewed(){
     Review reviews[MAX_ARRAY_SIZE];
     Videogame all_games[MAX_ARRAY_SIZE] = {0};

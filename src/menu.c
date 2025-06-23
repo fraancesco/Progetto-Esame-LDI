@@ -4,6 +4,7 @@
 #include "research_and_order.h"
 #include "review.h"
 
+//Mostra menu delle statistiche e fa scegliere cosa si vuole vedere
 void stats(){
     int op;
     do{
@@ -29,6 +30,7 @@ void stats(){
     }while(op != 4);
 }
 
+//Mostra menu degli ordinamenti e fa scegliere come lo si vuole ordinare
 void order_menu(Videogame all_games[], int games_count){
     int op;
     do{
@@ -54,6 +56,7 @@ void order_menu(Videogame all_games[], int games_count){
     }while(op != 4);
 }
 
+//Mostrea il menu e le scelte dell'amministratore
 void admin(){
     int op;
     do{
@@ -76,6 +79,7 @@ void admin(){
     }while(op != 3);
 }
 
+//Menu per la gestione del videogame
 void crud_menu(){
     int op;
     do{
@@ -101,6 +105,7 @@ void crud_menu(){
     }while(op != 4);
 }
 
+//Mostrea il menu e le scelte del visitatore
 void user(){
     int op;
     do{
@@ -123,6 +128,7 @@ void user(){
     }while (op != 3);
 }
 
+//Mostra il menu iniziale dove scegliere come effetuare l'accesso
 void start(){
     int op;
     do{

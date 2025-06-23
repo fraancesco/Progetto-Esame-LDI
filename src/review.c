@@ -13,7 +13,8 @@ void add_review(int videogame_id){
     while ((c = getchar()) != '\n' && c != EOF); // svuota il buffer
 
     printf("--------Aggiungi recensione--------\n");
-    do{
+    do{ 
+        // controlla se la valutazione e valida
         printf("Valore: ");
         scanf("%lf", &new_review.value);
         new_review.value = round(new_review.value * 10.0) / 10.0;
@@ -23,6 +24,7 @@ void add_review(int videogame_id){
     }while(new_review.value < 0 || new_review.value > 5);
     getchar();
     do{
+        //controlla se il commento è valido
         too_long = 0;
         printf("Commento: ");
         fgets(new_review.comment, MAX_COMMENT_SIZE, stdin);
@@ -40,11 +42,12 @@ void add_review(int videogame_id){
     new_review.videogame_id = videogame_id;
     new_review.id = last_review_id() + 1;
 
-    write_review_file(new_review);
+    write_review_file(new_review); //aggiunge la recensione al file
 
-    printf("Recensione aggiunta con successo.\n");
+    printf("Recensione aggiunta con successo.\n"); //messaggio di conferma
 }
 
+//somma tutte le valutazioni se presenti e fa la media
 double average_review(Review reviews[], int reviews_count){
     double average = 0.0;
     for (int i = 0; i < reviews_count; i++) {
@@ -63,6 +66,7 @@ void view_reviews(int videogame_id){
     double average = 0.0;
     Review reviews[MAX_ARRAY_SIZE];
 
+    // controlla le recensioni del videgame e le mostra, se presenti, con valutazione e commento, altrimenti messaggio di errore
     if(read_reviews(reviews, videogame_id, &reviews_count) == 0){
         if(reviews_count == 0){
             printf("Nessuna recensione trovata.\n");
@@ -82,6 +86,7 @@ void delete_review(int videogame_id){
     Review reviews[MAX_ARRAY_SIZE];
     int reviews_count, i, found = 0;
 
+    //trova ed elimina la recensione selezinata
     if(read_all_reviews(reviews, videogame_id, &reviews_count) == 0){
         for(int i = 0; i < reviews_count; i++){
             if(reviews[i].videogame_id == videogame_id){
@@ -91,6 +96,6 @@ void delete_review(int videogame_id){
             }
         }
 
-        edit_review_file(reviews, reviews_count - 1);
+        edit_review_file(reviews, reviews_count - 1); //riscrive le recensioni rimanenti
     }
 }

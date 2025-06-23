@@ -15,7 +15,7 @@ void add_videogame(){
 
     printf("--------Aggiungi videogioco--------\n");
     do{
-        too_long = 0;
+        too_long = 0; //azzera la variabile per il controllo della lunghezza
         printf("Titolo: ");
         fgets(new_game.title, MAX_STRING_SIZE, stdin);
         if (strlen(new_game.title) > 0 && new_game.title[strlen(new_game.title) - 1] == '\n'){
@@ -31,6 +31,7 @@ void add_videogame(){
             printf("Titolo troppo lungo. Riprova.\n");
         }
     }while(strlen(new_game.title) == 0 || too_long);
+    //ripeto gli stessi controlli per editore, sviluppatore, descrizione e genere
     do{
         too_long = 0;
         printf("Editore: ");
@@ -82,6 +83,7 @@ void add_videogame(){
             printf("Descrizione troppo lunga. Riprova.\n");
         }
     }while(strlen(new_game.description) == 0 || too_long);
+    //verifichiamo che l'anno di publicazione sia valido
     do{
         printf("Anno di pubblicazione: ");
         scanf("%d", &new_game.year);
@@ -111,19 +113,19 @@ void add_videogame(){
     new_game.copies_sold = 0;
     new_game.id = last_videogame_id() + 1;
 
-    write_videogame_file(new_game);
+    write_videogame_file(new_game); //scrive il nuovo videogame nel file
 
-    printf("Videogioco aggiunto con successo.\n");
+    printf("Videogioco aggiunto con successo.\n"); //messaggio di successo
 }
 
 int view_all_videogame(Videogame all_games[], int *max_id, int *games_count){
     if(read_all_videogames(all_games, games_count) == 0){
         if(all_games == NULL){
-            printf("Errore nella lettura dei videogiochi.\n");
+            printf("Errore nella lettura dei videogiochi.\n"); //se non ci sono videogame da messaggio di errore
             return -1;
         }
 
-        printf("--------Ecco tutti i videogiochi--------\n");
+        printf("--------Ecco tutti i videogiochi--------\n"); //altrimenti li visualizza tutti
         for(int i = 0; i < *games_count; i++){
             printf("%d. \t", all_games[i].id);
             printf("%s\n", all_games[i].title);
@@ -139,7 +141,7 @@ void edit_videogame(){
     Videogame all_games[MAX_ARRAY_SIZE];
     int id, games_count, max_id, i, c, too_long, found = -1;
     
-    if(view_all_videogame(all_games, &max_id, &games_count) != -1){
+    if(view_all_videogame(all_games, &max_id, &games_count) != -1){ //controlla se sono presenti i videogame
 
         do {
             printf("Seleziona l'id del videogioco da modificare: ");
@@ -160,7 +162,9 @@ void edit_videogame(){
 
         i = found;
 
-        while ((c = getchar()) != '\n' && c != EOF)
+        while ((c = getchar()) != '\n' && c != EOF) //svuota il buffer
+        // ripete la stessa procedura di prima, solo che stavolta prende il video gioco trovato con l'id e
+        // lo modifica, per ogni punto con un nuovo titolo,editore,.. facendo vedere anche quello che era inserito prima
         printf("--------Modifica videogioco--------\n");
         do{
             too_long = 0;
@@ -311,6 +315,7 @@ void delete_videogame(){
     }
 }
 
+// permette di incrementare il contatore di copie vendute del videogioco
 void buy_videogame(int videogame_id){
     int c, games_count;
     Videogame all_games[MAX_ARRAY_SIZE];

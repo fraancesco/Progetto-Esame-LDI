@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "menu.h"
 
+//esecuzione principale del programma
 int main(){
-    start();
-    return 0;
+    start(); //avvia il programma
+    return 0; //termina il programma
 }
