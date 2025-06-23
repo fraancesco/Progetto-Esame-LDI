@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include "videogame.h"
 #include "file_manager.h"
-#include "research_and_sorting.h"
 #include "review.h"
 
 // aggiunge un nuovo videogioco

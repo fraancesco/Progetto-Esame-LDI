@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
-#include <stdlib.h>
 #include <math.h>
 #include "review.h"
 #include "file_manager.h"

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "videogame.h"
 #include "file_manager.h"
 #include "review.h"
