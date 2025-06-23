@@ -28,26 +28,26 @@
 
 1. **Amministratore:**
    *Funzionalità implementate per un amministratore:*
-   1 - Gestione videogiochi:
-   * Aggiunta di un videogame;
-   * Modifica di un videogame;
-   * Eliminazione di un Videogame;
-   2 - Visualizzazione delle statistiche:
-   * Visualizzazione dei videogame recensiti meglio;
-   * Visualizzazione dei videogame più venduti;
-   * Visualizzazione dei dati di un videogame cercato;
-   3 - Opzione per tornare al menu precedente
+   - Gestione videogiochi:
+      * Aggiunta di un videogame;
+      * Modifica di un videogame;
+      * Eliminazione di un Videogame;
+   - Visualizzazione delle statistiche:
+      * Visualizzazione dei videogame recensiti meglio;
+      * Visualizzazione dei videogame più venduti;
+      * Visualizzazione dei dati di un videogame cercato;
+   - Opzione per tornare al menu precedente
 
 2. **Utente:**
    *Funzionalità implementate per un Utente:*
-   1 - Visualizzazione videogioco:
-   * Opzione per recensione;
-   * Opzione per acquistarlo;
-   2 - Visualizzazione di tutti i videogiochi del catalogo:
-   * Visualizza per Recensioni;
-   * Visualizza per Bestseller;
-   * Visualizza per Ordine Alfabetico;
-   3 - Opzione per tornare al menu precedente
+   - Visualizzazione videogioco:
+      * Opzione per recensione;
+      * Opzione per acquistarlo;
+   - Visualizzazione di tutti i videogiochi del catalogo:
+      * Visualizza per Recensioni;
+      * Visualizza per Bestseller;
+      * Visualizza per Ordine Alfabetico;
+   - Opzione per tornare al menu precedente
 
 >**Nota:**
 >Amministratore:
