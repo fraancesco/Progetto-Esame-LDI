@@ -346,18 +346,8 @@ void show_all_videogames(){
 
 //funzioni di ordinamento dei vari criteri
 void bestseller_sorter(Videogame all_games[], int games_count){
-    int i, j;
+    int i, j, sorted = 0, p = 0;
     Videogame temp;
-    int sorted = 0, p = 0;
-    /*for(i = 0; i < games_count; i++){
-        for(j = i + 1; j < games_count; j++){
-            if(all_games[i].copies_sold < all_games[j].copies_sold){
-                temp = all_games[i];
-                all_games[i] = all_games[j];
-                all_games[j] = temp;
-            }
-        }
-    }*/
 
     while((!sorted) && (p < games_count)){
         sorted = 1;
@@ -374,38 +364,10 @@ void bestseller_sorter(Videogame all_games[], int games_count){
 }
 
 void best_reviewed_sorter(Videogame all_games[], int games_count) {
-    int i, j;
+    int i, j, count_i, count_j, p = 0, sorted = 0;
     Videogame temp;
     double avg_i, avg_j;
-    Review reviews_i[MAX_ARRAY_SIZE];
-    Review reviews_j[MAX_ARRAY_SIZE];
-    int count_i;
-    int count_j;
-    int p = 0;
-    int sorted = 0;
-
-    /*for (i = 0; i < games_count; i++) {
-        for (j = i + 1; j < games_count; j++) {
-            
-            count_i = 0;
-            count_j = 0;
-
-            // Leggi le recensioni per il gioco alla posizione 'i' e 'j'
-            read_reviews(reviews_i, all_games[i].id, &count_i);
-            read_reviews(reviews_j, all_games[j].id, &count_j);
-
-            // Calcola le loro medie
-            avg_i = average_review(reviews_i, count_i);
-            avg_j = average_review(reviews_j, count_j);
-
-            // Se la media del gioco 'j' è maggiore di quella del gioco 'i', scambiali
-            if (avg_j > avg_i) {
-                temp = all_games[i];
-                all_games[i] = all_games[j];
-                all_games[j] = temp;
-            }
-        }
-    }*/
+    Review reviews_i[MAX_ARRAY_SIZE], reviews_j[MAX_ARRAY_SIZE];
 
     while((!sorted) && (p < games_count)){
         sorted = 1;
@@ -432,19 +394,8 @@ void best_reviewed_sorter(Videogame all_games[], int games_count) {
 }
 
 void alfabetical_sorter(Videogame all_games[], int games_count){
-    int i, j;
+    int i, j, sorted = 0, p = 0;
     Videogame temp;
-    int sorted = 0, p = 0;
-
-    /*for(i = 0; i < games_count; i++){
-        for(j = i + 1; j < games_count; j++){
-            if(strcmp(all_games[i].title, all_games[j].title) > 0){
-                temp = all_games[i];
-                all_games[i] = all_games[j];
-                all_games[j] = temp;
-            }
-        }
-    }*/
 
     while((!sorted) && (p < games_count)){
         sorted = 1;
