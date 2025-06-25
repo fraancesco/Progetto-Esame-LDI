@@ -9,8 +9,6 @@ void add_videogame(){
     Videogame new_game;
     int c, too_long;
 
-    while ((c = getchar()) != '\n' && c != EOF); // svuota il buffer
-
     printf("--------Aggiungi videogioco--------\n");
     do{
         too_long = 0; //azzera la variabile per il controllo della lunghezza
@@ -267,14 +265,14 @@ void edit_videogame(){
 
 void delete_videogame(){
     Videogame all_games[MAX_ARRAY_SIZE];
-    int id, games_count, max_id, found = 0, index_to_delete = -1;;
+    int id, c, games_count, max_id, found = 0, index_to_delete = -1;
     
     if(view_all_videogame(all_games, &max_id, &games_count) != -1){
        
         do {
             printf("Seleziona l'id del videogioco da eliminare: ");
             scanf("%d", &id);
-
+            while ((c = getchar()) != '\n' && c != EOF);
             // Verifica se esiste un videogioco con quell'id
             for(int i = 0; i < games_count; i++) {
                 if(all_games[i].id == id) {
@@ -304,7 +302,7 @@ void delete_videogame(){
                 all_games[i] = all_games[i + 1];
             }
 
-            delete_review(all_games[index_to_delete].id);
+            delete_review(id);
 
             // Riscrivi il file con uno in meno
             edit_videogame_file(all_games, games_count - 1);

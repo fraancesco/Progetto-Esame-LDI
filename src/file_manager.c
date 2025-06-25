@@ -9,7 +9,12 @@
 int write_videogame_file(Videogame game) {
     Videogame all_games[MAX_ARRAY_SIZE];
     int games_count;
-    char title[MAX_STRING_SIZE];
+    char title[MAX_STRING_SIZE], new_game_lower_title[MAX_STRING_SIZE];
+
+    for (int i = 0; i < strlen(game.title); i++){
+        new_game_lower_title[i] = tolower(game.title[i]);
+    }
+    
     FILE *file = fopen(PATH_VIDEOGAME_FILE, "ab");
     
     // controlla se il file è stato aperto correttamente
@@ -27,6 +32,7 @@ int write_videogame_file(Videogame game) {
             }
             if(strcmp(title, game.title) == 0){
                 printf("Il gioco con lo stesso titolo esiste gia'.\n");
+                fclose(file);
                 return -1;
             }
         }
@@ -87,7 +93,7 @@ int read_all_videogames(Videogame all_games[], int *games_count) {
     for(int i = 0; i < *games_count; i++){
         fread(&all_games[i], sizeof(Videogame), 1, file);
     }
-
+    fclose(file);
     return 0;
 }
 
@@ -175,7 +181,7 @@ int edit_review_file(Review reviews[], int reviews_count) {
 }
 
 // legge tutte le recensioni dal file binario
-int read_all_reviews(Review reviews[], int videogame_id, int *reviews_count) {
+int read_all_reviews(Review reviews[], int *reviews_count) {
     FILE *file = fopen(PATH_REVIEW_FILE, "rb");
 
     if (file == NULL) {
@@ -199,6 +205,7 @@ int read_all_reviews(Review reviews[], int videogame_id, int *reviews_count) {
         fread(&reviews[i], sizeof(Review), 1, file);
     }
 
+    fclose(file);
     return 0;
 }
 
@@ -233,6 +240,6 @@ int read_reviews(Review reviews[], int videogame_id, int *reviews_count) {
             reviews[(*reviews_count)++] = temp;
         }
     }
-
+    fclose(file);
     return 0;
 }

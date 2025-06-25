@@ -13,328 +13,326 @@
 \DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ new\_game;}
 \DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ c,\ too\_long;}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);\ \textcolor{comment}{//\ svuota\ il\ buffer}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Aggiungi\ videogioco-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;\ \textcolor{comment}{//azzera\ la\ variabile\ per\ il\ controllo\ della\ lunghezza}}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo:\ "{}});}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ rimuove\ il\ ritorno\ a\ capo\ preso\ come\ carattere\ nel\ caso\ in\ cui\ ci\ sia}}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);\ \textcolor{comment}{//\ stringa\ troppo\ lunga\ e\ quindi\ ritorno\ a\ capo\ non\ presente,\ pulizia\ del\ buffer}}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ ==\ 0)\{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ titolo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00031\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//ripeto\ gli\ stessi\ controlli\ per\ editore,\ sviluppatore,\ descrizione\ e\ genere}}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Editore:\ "{}});}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ ==\ 0)\{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ editore.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ editore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00049\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sviluppatore:\ "{}});}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ ==\ 0)\{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ sviluppatore.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ sviluppatore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00066\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione:\ "{}});}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ ==\ 0)\{\ \ \ \ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ una\ descrizione.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{\ \ \ \ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ troppo\ lunga.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00083\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//verifichiamo\ che\ l'anno\ di\ publicazione\ sia\ valido}}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ di\ pubblicazione:\ "{}});}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}});}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ <\ 1900\ ||\ new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ >\ 2026)\{}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00091\ \ \ \ \ \}\textcolor{keywordflow}{while}(new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ <\ 1900\ ||\ new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ >\ 2026);}
-\DoxyCodeLine{00092\ \ \ \ \ getchar();}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere:\ "{}});}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ ==\ 0)\{}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ genere.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00109\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00110\ \ \ \ \ }
-\DoxyCodeLine{00111\ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_aeac3931fd7d8118a1d41f49463217995}{copies\_sold}}\ =\ 0;}
-\DoxyCodeLine{00112\ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ last\_videogame\_id()\ +\ 1;}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}(write\_videogame\_file(new\_game)\ ==\ 0)\{}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ aggiunto\ con\ successo.\(\backslash\)n"{}});\ \textcolor{comment}{//messaggio\ di\ successo}}
-\DoxyCodeLine{00116\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ videogioco.\(\backslash\)n"{}});\ \textcolor{comment}{//messaggio\ di\ errore}}
-\DoxyCodeLine{00118\ \ \ \ \ \}}
-\DoxyCodeLine{00119\ \}}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{int}\ view\_all\_videogame(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ *max\_id,\ \textcolor{keywordtype}{int}\ *games\_count)\{}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_videogames(all\_games,\ games\_count)\ ==\ 0)\{}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games\ ==\ NULL)\{}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ dei\ videogiochi.\(\backslash\)n"{}});\ \textcolor{comment}{//se\ non\ ci\ sono\ videogame\ da\ messaggio\ di\ errore}}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Ecco\ tutti\ i\ videogiochi-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});\ \textcolor{comment}{//altrimenti\ li\ visualizza\ tutti}}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ *games\_count;\ i++)\{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d.\ \(\backslash\)t"{}},\ all\_games[i].\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ all\_games[i].title);}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ *max\_id\ =\ i;}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00135\ \ \ \ \ \}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00138\ \}}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ edit\_videogame()\{}
-\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ games\_count,\ max\_id,\ i,\ c,\ too\_long,\ found\ =\ -\/1;}
-\DoxyCodeLine{00143\ \ \ \ \ }
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}(view\_all\_videogame(all\_games,\ \&max\_id,\ \&games\_count)\ !=\ -\/1)\{\ \textcolor{comment}{//controlla\ se\ sono\ presenti\ i\ videogame}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ l'id\ del\ videogioco\ da\ modificare:\ "{}});}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ i;}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ -\/1)\ \{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00012\ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Aggiungi\ videogioco-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;\ \textcolor{comment}{//azzera\ la\ variabile\ per\ il\ controllo\ della\ lunghezza}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo:\ "{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ rimuove\ il\ ritorno\ a\ capo\ preso\ come\ carattere\ nel\ caso\ in\ cui\ ci\ sia}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);\ \textcolor{comment}{//\ stringa\ troppo\ lunga\ e\ quindi\ ritorno\ a\ capo\ non\ presente,\ pulizia\ del\ buffer}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ ==\ 0)\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ titolo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}})\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//ripeto\ gli\ stessi\ controlli\ per\ editore,\ sviluppatore,\ descrizione\ e\ genere}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Editore:\ "{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ ==\ 0)\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ editore.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ editore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}})\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sviluppatore:\ "{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ ==\ 0)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ sviluppatore.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ sviluppatore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}})\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione:\ "{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ ==\ 0)\{\ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ una\ descrizione.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{\ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ troppo\ lunga.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}})\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//verifichiamo\ che\ l'anno\ di\ publicazione\ sia\ valido}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ di\ pubblicazione:\ "{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ <\ 1900\ ||\ new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ >\ 2026)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}\textcolor{keywordflow}{while}(new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ <\ 1900\ ||\ new\_game.\mbox{\hyperlink{struct_videogame_abeac221e38b7b9ce7df8722c842bf671}{year}}\ >\ 2026);}
+\DoxyCodeLine{00090\ \ \ \ \ getchar();}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere:\ "{}});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ fgets(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}},\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ >\ 0\ \&\&\ new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ ==\ 0)\{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ genere.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(new\_game.\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}})\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_aeac3931fd7d8118a1d41f49463217995}{copies\_sold}}\ =\ 0;}
+\DoxyCodeLine{00110\ \ \ \ \ new\_game.\mbox{\hyperlink{struct_videogame_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ last\_videogame\_id()\ +\ 1;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}(write\_videogame\_file(new\_game)\ ==\ 0)\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ aggiunto\ con\ successo.\(\backslash\)n"{}});\ \textcolor{comment}{//messaggio\ di\ successo}}
+\DoxyCodeLine{00114\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ scrittura\ del\ videogioco.\(\backslash\)n"{}});\ \textcolor{comment}{//messaggio\ di\ errore}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ view\_all\_videogame(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ *max\_id,\ \textcolor{keywordtype}{int}\ *games\_count)\{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_videogames(all\_games,\ games\_count)\ ==\ 0)\{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games\ ==\ NULL)\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ dei\ videogiochi.\(\backslash\)n"{}});\ \textcolor{comment}{//se\ non\ ci\ sono\ videogame\ da\ messaggio\ di\ errore}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Ecco\ tutti\ i\ videogiochi-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});\ \textcolor{comment}{//altrimenti\ li\ visualizza\ tutti}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ *games\_count;\ i++)\{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d.\ \(\backslash\)t"{}},\ all\_games[i].\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ all\_games[i].title);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ *max\_id\ =\ i;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ edit\_videogame()\{}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ games\_count,\ max\_id,\ i,\ c,\ too\_long,\ found\ =\ -\/1;}
+\DoxyCodeLine{00141\ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{if}(view\_all\_videogame(all\_games,\ \&max\_id,\ \&games\_count)\ !=\ -\/1)\{\ \textcolor{comment}{//controlla\ se\ sono\ presenti\ i\ videogame}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ l'id\ del\ videogioco\ da\ modificare:\ "{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ i;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (found\ ==\ -\/1);}
 \DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (found\ ==\ -\/1);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ i\ =\ found;}
 \DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ i\ =\ found;}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF)\ \textcolor{comment}{//svuota\ il\ buffer}}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ripete\ la\ stessa\ procedura\ di\ prima,\ solo\ che\ stavolta\ prende\ il\ video\ gioco\ trovato\ con\ l'id\ e}}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lo\ modifica,\ per\ ogni\ punto\ con\ un\ nuovo\ titolo,editore,..\ facendo\ vedere\ anche\ quello\ che\ era\ inserito\ prima}}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Modifica\ videogioco-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ Vecchio:\ \%s\(\backslash\)t\ Titolo\ Nuovo:\ "{}},\ all\_games[i].title);}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].title,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].title)\ >\ 0\ \&\&\ all\_games[i].title[strlen(all\_games[i].title)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(all\_games[i].title)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].title)\ ==\ 0)\{}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ titolo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].title)\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Editore\ Vecchio:\ \%s\(\backslash\)t\ Editore\ Nuovo:\ "{}},\ all\_games[i].editor);}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].editor,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].editor)\ >\ 0\ \&\&\ all\_games[i].editor[strlen(all\_games[i].editor)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(all\_games[i].editor)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].editor)\ ==\ 0)\{}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ editore.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ editore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].editor)\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sviluppatore\ Vecchio:\ \%s\(\backslash\)t\ Sviluppatore\ Nuovo:\ "{}},\ all\_games[i].developer);}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].developer,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].developer)\ >\ 0\ \&\&\ all\_games[i].developer[strlen(all\_games[i].developer)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(all\_games[i].developer)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ }
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].developer)\ ==\ 0)\{}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ sviluppatore.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ sviluppatore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].developer)\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ Vecchia:\ \%s\(\backslash\)t\ Descrizione\ Nuova:\ "{}},\ all\_games[i].description);}
-\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].description,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].description)\ >\ 0\ \&\&\ all\_games[i].description[strlen(all\_games[i].description)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(all\_games[i].description)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].description)\ ==\ 0)\{}
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ una\ descrizione.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ troppo\ lunga.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].description)\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ di\ pubblicazione\ Vecchio:\ \%d\(\backslash\)t\ Anno\ di\ pubblicazione\ Nuovo:\ "{}},\ all\_games[i].year);}
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&all\_games[i].year);}
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].year\ <\ 1900\ ||\ all\_games[i].year\ >\ 2050)\{}
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(all\_games[i].year\ <\ 1900\ ||\ all\_games[i].year\ >\ 2050);}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ getchar();}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
-\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ Vecchio:\ \%s\(\backslash\)t\ Genere\ Nuovo:\ "{}},\ all\_games[i].genre);}
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].genre,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].genre)\ >\ 0\ \&\&\ all\_games[i].genre[strlen(all\_games[i].genre)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(all\_games[i].genre)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].genre)\ ==\ 0)\{}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ genere.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
-\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].genre)\ ==\ 0\ ||\ too\_long);}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count);}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ modificato\ con\ successo.\(\backslash\)n"{}});}
-\DoxyCodeLine{00265\ \ \ \ \ \}}
-\DoxyCodeLine{00266\ \}}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00268\ \textcolor{keywordtype}{void}\ delete\_videogame()\{}
-\DoxyCodeLine{00269\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
-\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ games\_count,\ max\_id,\ found\ =\ 0,\ index\_to\_delete\ =\ -\/1;;}
-\DoxyCodeLine{00271\ \ \ \ \ }
-\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{if}(view\_all\_videogame(all\_games,\ \&max\_id,\ \&games\_count)\ !=\ -\/1)\{}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ l'id\ del\ videogioco\ da\ eliminare:\ "{}});}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ esiste\ un\ videogioco\ con\ quell'id}}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00285\ }
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ -\/1;}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF)\ \textcolor{comment}{//svuota\ il\ buffer}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ripete\ la\ stessa\ procedura\ di\ prima,\ solo\ che\ stavolta\ prende\ il\ video\ gioco\ trovato\ con\ l'id\ e}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lo\ modifica,\ per\ ogni\ punto\ con\ un\ nuovo\ titolo,editore,..\ facendo\ vedere\ anche\ quello\ che\ era\ inserito\ prima}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/Modifica\ videogioco-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ Vecchio:\ \%s\(\backslash\)t\ Titolo\ Nuovo:\ "{}},\ all\_games[i].title);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].title,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].title)\ >\ 0\ \&\&\ all\_games[i].title[strlen(all\_games[i].title)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_acd6858f691261e60126ec1e76048fbfc}{title}}[strlen(all\_games[i].title)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].title)\ ==\ 0)\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ titolo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Titolo\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].title)\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Editore\ Vecchio:\ \%s\(\backslash\)t\ Editore\ Nuovo:\ "{}},\ all\_games[i].editor);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].editor,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].editor)\ >\ 0\ \&\&\ all\_games[i].editor[strlen(all\_games[i].editor)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_aa3948d9c10acef283c8a3fc5f168c48f}{editor}}[strlen(all\_games[i].editor)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].editor)\ ==\ 0)\{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ editore.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ editore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].editor)\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Sviluppatore\ Vecchio:\ \%s\(\backslash\)t\ Sviluppatore\ Nuovo:\ "{}},\ all\_games[i].developer);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].developer,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].developer)\ >\ 0\ \&\&\ all\_games[i].developer[strlen(all\_games[i].developer)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_a5d1c3e57abe2979abc09fe74b91a8500}{developer}}[strlen(all\_games[i].developer)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].developer)\ ==\ 0)\{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ sviluppatore.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome\ sviluppatore\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].developer)\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ Vecchia:\ \%s\(\backslash\)t\ Descrizione\ Nuova:\ "{}},\ all\_games[i].description);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].description,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].description)\ >\ 0\ \&\&\ all\_games[i].description[strlen(all\_games[i].description)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_ac319ff531d5a034c7db869682021d593}{description}}[strlen(all\_games[i].description)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].description)\ ==\ 0)\{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ una\ descrizione.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Descrizione\ troppo\ lunga.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].description)\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ di\ pubblicazione\ Vecchio:\ \%d\(\backslash\)t\ Anno\ di\ pubblicazione\ Nuovo:\ "{}},\ all\_games[i].year);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&all\_games[i].year);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].year\ <\ 1900\ ||\ all\_games[i].year\ >\ 2050)\{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Anno\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(all\_games[i].year\ <\ 1900\ ||\ all\_games[i].year\ >\ 2050);}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ getchar();}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 0;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ Vecchio:\ \%s\(\backslash\)t\ Genere\ Nuovo:\ "{}},\ all\_games[i].genre);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ fgets(all\_games[i].genre,\ \mbox{\hyperlink{videogame_8h_a220f38b26fa99d4d91b574f42d991516}{MAX\_STRING\_SIZE}},\ stdin);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].genre)\ >\ 0\ \&\&\ all\_games[i].genre[strlen(all\_games[i].genre)\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_a9dee4a500d0d7daf593f50da3d0ffd55}{genre}}[strlen(all\_games[i].genre)\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ too\_long\ =\ 1;}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strlen(all\_games[i].genre)\ ==\ 0)\{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Inserire\ un\ genere.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(too\_long)\{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Genere\ troppo\ lungo.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(strlen(all\_games[i].genre)\ ==\ 0\ ||\ too\_long);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ modificato\ con\ successo.\(\backslash\)n"{}});}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{keywordtype}{void}\ delete\_videogame()\{}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ c,\ games\_count,\ max\_id,\ found\ =\ 0,\ index\_to\_delete\ =\ -\/1;}
+\DoxyCodeLine{00269\ \ \ \ \ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{if}(view\_all\_videogame(all\_games,\ \&max\_id,\ \&games\_count)\ !=\ -\/1)\{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ l'id\ del\ videogioco\ da\ eliminare:\ "{}});}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getchar())\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ c\ !=\ EOF);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ esiste\ un\ videogioco\ con\ quell'id}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ 1;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id\ non\ valido.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ -\/1;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(\textcolor{keywordtype}{id}\ ==\ -\/1);}
 \DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(\textcolor{keywordtype}{id}\ ==\ -\/1);}
-\DoxyCodeLine{00292\ }
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Trova\ l’indice\ da\ eliminare}}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\_to\_delete\ =\ i;}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\_to\_delete\ !=\ -\/1)\ \{}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Elimina\ il\ record\ spostando\ gli\ altri}}
-\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ index\_to\_delete;\ i\ <\ games\_count\ -\/\ 1;\ i++)\ \{}
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i]\ =\ all\_games[i\ +\ 1];}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Trova\ l’indice\ da\ eliminare}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (all\_games[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\_to\_delete\ =\ i;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\_to\_delete\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Elimina\ il\ record\ spostando\ gli\ altri}}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ index\_to\_delete;\ i\ <\ games\_count\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i]\ =\ all\_games[i\ +\ 1];}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_review(\textcolor{keywordtype}{id});}
 \DoxyCodeLine{00306\ }
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_review(all\_games[index\_to\_delete].\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Riscrivi\ il\ file\ con\ uno\ in\ meno}}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count\ -\/\ 1);}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ eliminato\ con\ successo.\(\backslash\)n"{}});}
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ interno:\ ID\ trovato\ ma\ indice\ non\ identificato.\(\backslash\)n"{}});}
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00315\ \ \ \ \ \}}
-\DoxyCodeLine{00316\ \}}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00318\ \textcolor{comment}{//\ permette\ di\ incrementare\ il\ contatore\ di\ copie\ vendute\ del\ videogioco}}
-\DoxyCodeLine{00319\ \textcolor{keywordtype}{void}\ buy\_videogame(\textcolor{keywordtype}{int}\ videogame\_id)\{}
-\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{int}\ c,\ games\_count;}
-\DoxyCodeLine{00321\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
-\DoxyCodeLine{00322\ }
-\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_videogames(all\_games,\ \&games\_count)\ ==\ 0)\{}
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\{}
-\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].\textcolor{keywordtype}{id}\ ==\ videogame\_id)\{}
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_aeac3931fd7d8118a1d41f49463217995}{copies\_sold}}++;}
-\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ acquistato\ con\ successo.\(\backslash\)n"{}});}
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count);}
-\DoxyCodeLine{00331\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ dei\ videogiochi.\(\backslash\)n"{}});}
-\DoxyCodeLine{00333\ \ \ \ \ \}}
-\DoxyCodeLine{00334\ \}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Riscrivi\ il\ file\ con\ uno\ in\ meno}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count\ -\/\ 1);}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ eliminato\ con\ successo.\(\backslash\)n"{}});}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ interno:\ ID\ trovato\ ma\ indice\ non\ identificato.\(\backslash\)n"{}});}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{//\ permette\ di\ incrementare\ il\ contatore\ di\ copie\ vendute\ del\ videogioco}}
+\DoxyCodeLine{00317\ \textcolor{keywordtype}{void}\ buy\_videogame(\textcolor{keywordtype}{int}\ videogame\_id)\{}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{int}\ c,\ games\_count;}
+\DoxyCodeLine{00319\ \ \ \ \ \mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[\mbox{\hyperlink{videogame_8h_a40af4217190d59d7145e58a278f9f87d}{MAX\_ARRAY\_SIZE}}];}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{if}(read\_all\_videogames(all\_games,\ \&games\_count)\ ==\ 0)\{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ games\_count;\ i++)\{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(all\_games[i].\textcolor{keywordtype}{id}\ ==\ videogame\_id)\{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_games[i].\mbox{\hyperlink{struct_videogame_aeac3931fd7d8118a1d41f49463217995}{copies\_sold}}++;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Videogioco\ acquistato\ con\ successo.\(\backslash\)n"{}});}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ edit\_videogame\_file(all\_games,\ games\_count);}
+\DoxyCodeLine{00329\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Errore\ nella\ lettura\ dei\ videogiochi.\(\backslash\)n"{}});}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \}}
 
 \end{DoxyCode}

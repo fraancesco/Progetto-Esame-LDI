@@ -10,6 +10,7 @@ int get_menu_choice(int min_op, int max_op) {
     char buffer[100];
     char *endptr;
     long choice = -1;
+    int c;
 
     while (1) { // Cicla finché non otteniamo un input valido
         printf("Scegli una opzione: ");

@@ -14,156 +14,157 @@
 \DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[100];}
 \DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}\ *endptr;}
 \DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{long}\ choice\ =\ -\/1;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{\ \textcolor{comment}{//\ Cicla\ finché\ non\ otteniamo\ un\ input\ valido}}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Scegli\ una\ opzione:\ "{}});}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fgets(buffer,\ \textcolor{keyword}{sizeof}(buffer),\ stdin)\ !=\ NULL)\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rimuove\ il\ carattere\ di\ newline\ (\(\backslash\)n)\ che\ fgets\ memorizza}}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[strcspn(buffer,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prova\ a\ convertire\ la\ stringa\ in\ un\ numero}}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ choice\ =\ strtol(buffer,\ \&endptr,\ 10);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Controlla\ se\ la\ conversione\ è\ andata\ a\ buon\ fine\ e\ se\ è\ nell'intervallo\ giusto}}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ endptr\ ==\ buffer:\ l'input\ non\ iniziava\ con\ un\ numero\ (es.\ "{}abc"{})}}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ *endptr\ !=\ '\(\backslash\)0':\ c'erano\ caratteri\ extra\ dopo\ il\ numero\ (es.\ "{}12xyz"{})}}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ choice\ <\ min\_op\ ||\ choice\ >\ max\_op:\ il\ numero\ è\ fuori\ dall'intervallo}}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (endptr\ ==\ buffer\ ||\ *endptr\ !=\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ choice\ <\ min\_op\ ||\ choice\ >\ max\_op)\ \{}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Opzione\ non\ valida.\ Riprova.\(\backslash\)n"{}});}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Input\ valido,\ esci\ dal\ ciclo}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_op;\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00036\ \ \ \ \ \}}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{int})choice;}
-\DoxyCodeLine{00038\ \}}
-\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{\ \textcolor{comment}{//\ Cicla\ finché\ non\ otteniamo\ un\ input\ valido}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Scegli\ una\ opzione:\ "{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fgets(buffer,\ \textcolor{keyword}{sizeof}(buffer),\ stdin)\ !=\ NULL)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rimuove\ il\ carattere\ di\ newline\ (\(\backslash\)n)\ che\ fgets\ memorizza}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[strcspn(buffer,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})]\ =\ 0;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prova\ a\ convertire\ la\ stringa\ in\ un\ numero}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ choice\ =\ strtol(buffer,\ \&endptr,\ 10);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Controlla\ se\ la\ conversione\ è\ andata\ a\ buon\ fine\ e\ se\ è\ nell'intervallo\ giusto}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ endptr\ ==\ buffer:\ l'input\ non\ iniziava\ con\ un\ numero\ (es.\ "{}abc"{})}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ *endptr\ !=\ '\(\backslash\)0':\ c'erano\ caratteri\ extra\ dopo\ il\ numero\ (es.\ "{}12xyz"{})}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ choice\ <\ min\_op\ ||\ choice\ >\ max\_op:\ il\ numero\ è\ fuori\ dall'intervallo}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (endptr\ ==\ buffer\ ||\ *endptr\ !=\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ choice\ <\ min\_op\ ||\ choice\ >\ max\_op)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Opzione\ non\ valida.\ Riprova.\(\backslash\)n"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Input\ valido,\ esci\ dal\ ciclo}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_op;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{int})choice;}
+\DoxyCodeLine{00039\ \}}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{comment}{//Mostra\ menu\ degli\ ordinamenti\ e\ fa\ scegliere\ come\ lo\ si\ vuole\ ordinare}}
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ order\_menu(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ games\_count)\{}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Ordina\ Per-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Recensioni\(\backslash\)n"{}});}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Bestseller\(\backslash\)n"{}});}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Alfabetico\(\backslash\)n"{}});}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ precedente\(\backslash\)n"{}});}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ review\_order(all\_games,\ games\_count);}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ bestseller\_order(all\_games,\ games\_count);}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ alfabetical\_order(all\_games,\ games\_count);}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00060\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
-\DoxyCodeLine{00061\ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{comment}{//Mostra\ il\ menu\ e\ le\ scelte\ del\ visitatore}}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ user()\{}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Menu\ visitatore-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Visualizza\ videogioco\(\backslash\)n"{}});}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Visualizza\ i\ videogiochi\ del\ catalogo\(\backslash\)n"{}});}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Torna\ al\ menu\ principale\(\backslash\)n"{}});}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ search\_videogame\_user();}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ show\_all\_videogames();}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00079\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (op\ !=\ 3);}
-\DoxyCodeLine{00080\ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{comment}{//Mostra\ menu\ delle\ statistiche\ e\ fa\ scegliere\ cosa\ si\ vuole\ vedere}}
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ stats()\{}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Gestione\ statistiche-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Migliori\ recensioni\ \(\backslash\)n"{}});}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Best\ seller\(\backslash\)n"{}});}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Dati\ singolo\ videogioco\(\backslash\)n"{}});}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ precedente\(\backslash\)n"{}});}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ top\_reviewed();}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ top\_seller();}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ search\_videogame\_admin();}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00101\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
-\DoxyCodeLine{00102\ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \textcolor{comment}{//Menu\ per\ la\ gestione\ del\ videogame}}
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ crud\_menu()\{}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Gestione\ Videogiochi-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Aggiungi\ videogioco\(\backslash\)n"{}});}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Modifica\ videogioco\(\backslash\)n"{}});}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Elimina\ videogioco\(\backslash\)n"{}});}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ admin\(\backslash\)n"{}});}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ add\_videogame();}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ edit\_videogame();}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_videogame();}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00123\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
-\DoxyCodeLine{00124\ \}}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{//Mostra\ il\ menu\ e\ le\ scelte\ dell'amministratore}}
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ admin()\{}
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Menu\ amministratore-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Gestione\ videogiochi\(\backslash\)n"{}});}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Visualizza\ statistiche\(\backslash\)n"{}});}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Torna\ al\ menu\ principale\(\backslash\)n"{}});}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ crud\_menu();}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ stats();}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00142\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 3);}
-\DoxyCodeLine{00143\ \}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \textcolor{comment}{//Mostra\ il\ menu\ iniziale\ dove\ scegliere\ come\ effettuare\ l'accesso}}
-\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ start()\{}
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{do}\{}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n========Benvenuto\ nel\ Catalogo\ di\ Videogiochi========\(\backslash\)n"{}});}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ una\ opzione:\(\backslash\)n"{}});}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Admin\(\backslash\)n"{}});}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Utente\(\backslash\)n"{}});}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Esci\(\backslash\)n"{}});}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ admin();}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ user();}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00162\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 3);}
-\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//Mostra\ menu\ degli\ ordinamenti\ e\ fa\ scegliere\ come\ lo\ si\ vuole\ ordinare}}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ order\_menu(\mbox{\hyperlink{struct_videogame}{Videogame}}\ all\_games[],\ \textcolor{keywordtype}{int}\ games\_count)\{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Ordina\ Per-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Recensioni\(\backslash\)n"{}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Bestseller\(\backslash\)n"{}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Alfabetico\(\backslash\)n"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ precedente\(\backslash\)n"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ review\_order(all\_games,\ games\_count);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ bestseller\_order(all\_games,\ games\_count);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ alfabetical\_order(all\_games,\ games\_count);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//Mostra\ il\ menu\ e\ le\ scelte\ del\ visitatore}}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ user()\{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Menu\ visitatore-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Visualizza\ videogioco\(\backslash\)n"{}});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Visualizza\ i\ videogiochi\ del\ catalogo\(\backslash\)n"{}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Torna\ al\ menu\ principale\(\backslash\)n"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ search\_videogame\_user();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ show\_all\_videogames();}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (op\ !=\ 3);}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//Mostra\ menu\ delle\ statistiche\ e\ fa\ scegliere\ cosa\ si\ vuole\ vedere}}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ stats()\{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Gestione\ statistiche-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Migliori\ recensioni\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Best\ seller\(\backslash\)n"{}});}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Dati\ singolo\ videogioco\(\backslash\)n"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ precedente\(\backslash\)n"{}});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ top\_reviewed();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ top\_seller();}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ search\_videogame\_admin();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{//Menu\ per\ la\ gestione\ del\ videogame}}
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ crud\_menu()\{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Gestione\ Videogiochi-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Aggiungi\ videogioco\(\backslash\)n"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Modifica\ videogioco\(\backslash\)n"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Elimina\ videogioco\(\backslash\)n"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}4.\ Torna\ al\ menu\ admin\(\backslash\)n"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 4);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ add\_videogame();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ edit\_videogame();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 3)\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ delete\_videogame();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 4);}
+\DoxyCodeLine{00125\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{//Mostra\ il\ menu\ e\ le\ scelte\ dell'amministratore}}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ admin()\{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/Menu\ amministratore-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Gestione\ videogiochi\(\backslash\)n"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Visualizza\ statistiche\(\backslash\)n"{}});}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Torna\ al\ menu\ principale\(\backslash\)n"{}});}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ crud\_menu();}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ stats();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 3);}
+\DoxyCodeLine{00144\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{//Mostra\ il\ menu\ iniziale\ dove\ scegliere\ come\ effettuare\ l'accesso}}
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ start()\{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n========Benvenuto\ nel\ Catalogo\ di\ Videogiochi========\(\backslash\)n"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Seleziona\ una\ opzione:\(\backslash\)n"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1.\ Admin\(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}2.\ Utente\(\backslash\)n"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}3.\ Esci\(\backslash\)n"{}});}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ op\ =\ get\_menu\_choice(1,\ 3);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(op\ ==\ 1)\{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ admin();}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(op\ ==\ 2)\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ user();}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(op\ !=\ 3);}
+\DoxyCodeLine{00164\ \}}
 
 \end{DoxyCode}

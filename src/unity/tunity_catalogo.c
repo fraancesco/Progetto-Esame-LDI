@@ -177,7 +177,7 @@ void test_delete_review_logic(void) {
     
     Review updated_reviews[MAX_ARRAY_SIZE];
     int updated_count;
-    read_all_reviews(updated_reviews, 0, &updated_count); 
+    read_all_reviews(updated_reviews, &updated_count); 
 
     TEST_ASSERT_EQUAL_INT(4, updated_count);
 }

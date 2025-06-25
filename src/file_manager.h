@@ -47,7 +47,7 @@ int last_videogame_id();
 /**
  * @brief Legge tutti i videogame dal file binario
  * 
- * Carica in memoria tutti i videogame presenti nel file binario,
+ * Legge tutti i videogame presenti nel file binario,
  * popolando l'array fornito e aggiornando il contatore.
  * 
  * @param all_games Array di destinazione per i videogame letti
@@ -104,20 +104,19 @@ int edit_review_file(Review reviews[], int reviews_count);
 /**
  * @brief Legge tutte le recensioni dal file binario
  * 
- * Carica in memoria tutte le recensioni presenti nel file binario,
+ * Legge tutte le recensioni presenti nel file binario,
  * indipendentemente dal videogame di appartenenza.
  * 
  * @param reviews Array di destinazione per le recensioni lette
- * @param videogame_id ID del videogame (parametro mantenuto per compatibilità)
  * @param reviews_count Puntatore al contatore delle recensioni caricate
  * @return int Numero di recensioni lette (-1 se errore)
  */
-int read_all_reviews(Review reviews[], int videogame_id, int *reviews_count);
+int read_all_reviews(Review reviews[], int *reviews_count);
 
 /**
  * @brief Legge le recensioni di un videogame specifico
  * 
- * Carica in memoria tutte le recensioni associate a un determinato
+ * Legge tutte le recensioni associate a un determinato
  * videogame, filtrando per videogame_id.
  * 
  * @param reviews Array di destinazione per le recensioni lette

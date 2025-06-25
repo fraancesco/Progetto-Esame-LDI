@@ -33,7 +33,7 @@ int \mbox{\hyperlink{file__manager_8h_a960359971297b5ec04f90d522d95ae64}{write\+
 \begin{DoxyCompactList}\small\item\em Scrive una recensione nel file binario. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{file__manager_8h_a04bf7ce7e871c2ace62bb7eafcd1ac7f}{edit\+\_\+review\+\_\+file}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int reviews\+\_\+count)
 \begin{DoxyCompactList}\small\item\em Aggiorna il file delle recensioni con modifiche. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6}{read\+\_\+all\+\_\+reviews}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int videogame\+\_\+id, int \texorpdfstring{$\ast$}{*}reviews\+\_\+count)
+int \mbox{\hyperlink{file__manager_8h_a5238d49e982a1c3679e46eba651a544a}{read\+\_\+all\+\_\+reviews}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}reviews\+\_\+count)
 \begin{DoxyCompactList}\small\item\em Legge tutte le recensioni dal file binario. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{file__manager_8h_ab9e78f5c770d97036908dd73938b8738}{read\+\_\+reviews}} (\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}} reviews\mbox{[}$\,$\mbox{]}, int videogame\+\_\+id, int \texorpdfstring{$\ast$}{*}reviews\+\_\+count)
 \begin{DoxyCompactList}\small\item\em Legge le recensioni di un videogame specifico. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -128,23 +128,21 @@ Legge il file dei videogame per determinare l\textquotesingle{}ID più alto attu
 \begin{DoxyReturn}{Returns}
 ultimo ID videogame presente nel file 
 \end{DoxyReturn}
-\Hypertarget{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6}\index{file\_manager.h@{file\_manager.h}!read\_all\_reviews@{read\_all\_reviews}}
+\Hypertarget{file__manager_8h_a5238d49e982a1c3679e46eba651a544a}\index{file\_manager.h@{file\_manager.h}!read\_all\_reviews@{read\_all\_reviews}}
 \index{read\_all\_reviews@{read\_all\_reviews}!file\_manager.h@{file\_manager.h}}
 \doxysubsubsection{\texorpdfstring{read\_all\_reviews()}{read\_all\_reviews()}}
-{\footnotesize\ttfamily \label{file__manager_8h_a72ef006b02e5628bd2f8b4c82b49bad6} 
-int read\+\_\+all\+\_\+reviews (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{videogame\+\_\+id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{file__manager_8h_a5238d49e982a1c3679e46eba651a544a} 
+int read\+\_\+all\+\_\+reviews (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h_ad951bf360078c6822c7c890e1913a425}{Review}}}]{reviews}{\mbox{[}$\,$\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{reviews\+\_\+count}{}\end{DoxyParamCaption})}
 
 
 
 Legge tutte le recensioni dal file binario. 
 
-Carica in memoria tutte le recensioni presenti nel file binario, indipendentemente dal videogame di appartenenza.
+Legge tutte le recensioni presenti nel file binario, indipendentemente dal videogame di appartenenza.
 
 
 \begin{DoxyParams}{Parameters}
 {\em reviews} & Array di destinazione per le recensioni lette \\
-\hline
-{\em videogame\+\_\+id} & ID del videogame (parametro mantenuto per compatibilità) \\
 \hline
 {\em reviews\+\_\+count} & Puntatore al contatore delle recensioni caricate \\
 \hline
@@ -162,7 +160,7 @@ int read\+\_\+all\+\_\+videogames (\begin{DoxyParamCaption}\item[{\mbox{\hyperli
 
 Legge tutti i videogame dal file binario. 
 
-Carica in memoria tutti i videogame presenti nel file binario, popolando l\textquotesingle{}array fornito e aggiornando il contatore.
+Legge tutti i videogame presenti nel file binario, popolando l\textquotesingle{}array fornito e aggiornando il contatore.
 
 
 \begin{DoxyParams}{Parameters}
@@ -184,7 +182,7 @@ int read\+\_\+reviews (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{review_8h
 
 Legge le recensioni di un videogame specifico. 
 
-Carica in memoria tutte le recensioni associate a un determinato videogame, filtrando per videogame\+\_\+id.
+Legge tutte le recensioni associate a un determinato videogame, filtrando per videogame\+\_\+id.
 
 
 \begin{DoxyParams}{Parameters}

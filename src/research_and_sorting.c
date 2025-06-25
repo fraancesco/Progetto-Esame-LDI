@@ -168,7 +168,7 @@ void show_videogame_admin(Videogame all_games[], int games_count){
 //Poi fa scegliere se acquistarlo controllando che abbiano scritto correttamente, altrimenti da errore
 void show_videogame_user(Videogame all_games[], int games_count){
     Review reviews[MAX_ARRAY_SIZE];
-    int reviews_count;
+    int reviews_count, c;
     char option;
 
     if (games_count == 1) {
@@ -187,6 +187,7 @@ void show_videogame_user(Videogame all_games[], int games_count){
         do{
             printf("Desideri comprare il videogioco (Y/N): ");
             scanf(" %c", &option);
+            while ((c = getchar()) != '\n' && c != EOF);
             if(option == 'y' || option == 'Y'){
                 buy_videogame(all_games[i].id);
             }
@@ -198,6 +199,7 @@ void show_videogame_user(Videogame all_games[], int games_count){
         do{
             printf("Vuoi recensire il videogioco (Y/N): ");
             scanf(" %c", &option);
+            while ((c = getchar()) != '\n' && c != EOF);
             if(option == 'y' || option == 'Y'){
                 add_review(all_games[i].id);
             }
@@ -217,8 +219,6 @@ void search_videogame_admin(){
     char keyword[MAX_STRING_SIZE], option;
     int c, games_count, too_long, found = 0;
     Videogame all_games[MAX_ARRAY_SIZE], temp [MAX_ARRAY_SIZE];
-
-    while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
 
     do {
         too_long = 0;
@@ -268,8 +268,6 @@ void search_videogame_user(){
     Videogame all_games[MAX_ARRAY_SIZE], temp [MAX_ARRAY_SIZE];
     Review reviews[MAX_ARRAY_SIZE];
 
-    while ((c = getchar()) != '\n' && c != EOF); // Pulisce il buffer
-
     do {
         too_long = 0;
         printf("Inserisci parola chiave: ");
@@ -313,7 +311,7 @@ void search_videogame_user(){
 
 //mostra tutti i videogame e fa scegliere secondo quale ordine li vuole vedere
 void show_all_videogames(){
-    int games_count, reviews_count;
+    int games_count, reviews_count, c;
     Videogame all_games[MAX_ARRAY_SIZE];
     Review reviews[MAX_ARRAY_SIZE];
     char option;
@@ -333,6 +331,7 @@ void show_all_videogames(){
     do{
         printf("Desideri ordinare i videogiochi (Y/N): ");
         scanf(" %c", &option);
+        getchar();
         if(option == 'y' || option == 'Y'){
             order_menu(all_games, games_count);
         }
@@ -457,8 +456,8 @@ void top_seller(){
     if(read_all_videogames(all_games, &games_count) == 0){
         bestseller_sorter(all_games, games_count);
         
-        printf("--------Videogiochi in ordine di Vendita--------\n");
-        for(int i = 0; i < 5; i++){
+        printf("--------Top 5 Videogiochi in ordine di Vendita--------\n");
+        for(int i = 0; i < 5 && i < games_count; i++){
             if(strcmp(all_games[i].title, "") != 0){
                 if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
                     printf("Titolo: %s\n", all_games[i].title);
@@ -482,8 +481,8 @@ void top_reviewed(){
     if(read_all_videogames(all_games, &games_count) == 0){
         best_reviewed_sorter(all_games, games_count);
         
-        printf("--------Videogiochi in ordine di Recensioni--------\n");
-        for(int i = 0; i < 5; i++){
+        printf("--------Top 5 Videogiochi in ordine di Recensioni--------\n");
+        for(int i = 0; i < 5 && i < games_count; i++){
             if(strcmp(all_games[i].title, "") != 0){
                 if(read_reviews(reviews, all_games[i].id, &reviews_count) == 0){
                     printf("Titolo: %s\n", all_games[i].title);

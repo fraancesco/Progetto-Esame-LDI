@@ -8,8 +8,6 @@ void add_review(int videogame_id){
     Review new_review;
     int c, too_long;
 
-    while ((c = getchar()) != '\n' && c != EOF); // svuota il buffer
-
     printf("--------Aggiungi recensione--------\n");
     do{ 
         // controlla se la valutazione e valida
@@ -64,6 +62,7 @@ double average_review(Review reviews[], int reviews_count){
     return average;
 }
 
+// visualizza tutte le recensioni di un videogioco
 void view_reviews(int videogame_id){
     int reviews_count;
     double average = 0.0;
@@ -84,20 +83,22 @@ void view_reviews(int videogame_id){
     }
 }
 
+// elimina tutte le recensioni di un videogioco
 void delete_review(int videogame_id){
-    Review reviews[MAX_ARRAY_SIZE];
-    int reviews_count, i, found = 0;
+    Review all_reviews[MAX_ARRAY_SIZE], reviews_to_keep[MAX_ARRAY_SIZE];
+    int total_reviews_count = 0, keep_count = 0;
 
-    //trova ed elimina la recensione selezinata
-    if(read_all_reviews(reviews, videogame_id, &reviews_count) == 0){
-        for(int i = 0; i < reviews_count; i++){
-            if(reviews[i].videogame_id == videogame_id){
-                for (int j = i; i < reviews_count - 1; i++) {
-                    reviews[j] = reviews[j + 1];
-                }
+    if (read_all_reviews(all_reviews, &total_reviews_count) == 0) {
+
+        // Scorro tutte le recensioni e copio solo quelle che NON devono essere eliminate.
+        for (int i = 0; i < total_reviews_count; i++) {
+            if (all_reviews[i].videogame_id != videogame_id) {
+                reviews_to_keep[keep_count] = all_reviews[i];
+                keep_count++;
             }
         }
 
-        edit_review_file(reviews, reviews_count - 1); //riscrive le recensioni rimanenti
+        // Riscrivo il file solo con le recensioni da conservare.
+        edit_review_file(reviews_to_keep, keep_count);
     }
 }

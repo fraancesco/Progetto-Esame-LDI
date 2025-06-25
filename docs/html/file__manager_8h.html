@@ -150,9 +150,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a04bf7ce7e871c2ace62bb7eafcd1ac7f" id="r_a04bf7ce7e871c2ace62bb7eafcd1ac7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04bf7ce7e871c2ace62bb7eafcd1ac7f">edit_review_file</a> (<a class="el" href="review_8h.html#ad951bf360078c6822c7c890e1913a425">Review</a> reviews[], int reviews_count)</td></tr>
 <tr class="memdesc:a04bf7ce7e871c2ace62bb7eafcd1ac7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiorna il file delle recensioni con modifiche.  <br /></td></tr>
 <tr class="separator:a04bf7ce7e871c2ace62bb7eafcd1ac7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72ef006b02e5628bd2f8b4c82b49bad6" id="r_a72ef006b02e5628bd2f8b4c82b49bad6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72ef006b02e5628bd2f8b4c82b49bad6">read_all_reviews</a> (<a class="el" href="review_8h.html#ad951bf360078c6822c7c890e1913a425">Review</a> reviews[], int videogame_id, int *reviews_count)</td></tr>
-<tr class="memdesc:a72ef006b02e5628bd2f8b4c82b49bad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge tutte le recensioni dal file binario.  <br /></td></tr>
-<tr class="separator:a72ef006b02e5628bd2f8b4c82b49bad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5238d49e982a1c3679e46eba651a544a" id="r_a5238d49e982a1c3679e46eba651a544a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5238d49e982a1c3679e46eba651a544a">read_all_reviews</a> (<a class="el" href="review_8h.html#ad951bf360078c6822c7c890e1913a425">Review</a> reviews[], int *reviews_count)</td></tr>
+<tr class="memdesc:a5238d49e982a1c3679e46eba651a544a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge tutte le recensioni dal file binario.  <br /></td></tr>
+<tr class="separator:a5238d49e982a1c3679e46eba651a544a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e78f5c770d97036908dd73938b8738" id="r_ab9e78f5c770d97036908dd73938b8738"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9e78f5c770d97036908dd73938b8738">read_reviews</a> (<a class="el" href="review_8h.html#ad951bf360078c6822c7c890e1913a425">Review</a> reviews[], int videogame_id, int *reviews_count)</td></tr>
 <tr class="memdesc:ab9e78f5c770d97036908dd73938b8738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge le recensioni di un videogame specifico.  <br /></td></tr>
 <tr class="separator:ab9e78f5c770d97036908dd73938b8738"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,8 +270,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a72ef006b02e5628bd2f8b4c82b49bad6" name="a72ef006b02e5628bd2f8b4c82b49bad6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72ef006b02e5628bd2f8b4c82b49bad6">&#9670;&#160;</a></span>read_all_reviews()</h2>
+<a id="a5238d49e982a1c3679e46eba651a544a" name="a5238d49e982a1c3679e46eba651a544a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5238d49e982a1c3679e46eba651a544a">&#9670;&#160;</a></span>read_all_reviews()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,22 +284,16 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>videogame_id</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>reviews_count</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Legge tutte le recensioni dal file binario. </p>
-<p>Carica in memoria tutte le recensioni presenti nel file binario, indipendentemente dal videogame di appartenenza.</p>
+<p>Legge tutte le recensioni presenti nel file binario, indipendentemente dal videogame di appartenenza.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reviews</td><td>Array di destinazione per le recensioni lette </td></tr>
-    <tr><td class="paramname">videogame_id</td><td>ID del videogame (parametro mantenuto per compatibilità) </td></tr>
     <tr><td class="paramname">reviews_count</td><td>Puntatore al contatore delle recensioni caricate </td></tr>
   </table>
   </dd>
@@ -328,7 +322,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Legge tutti i videogame dal file binario. </p>
-<p>Carica in memoria tutti i videogame presenti nel file binario, popolando l'array fornito e aggiornando il contatore.</p>
+<p>Legge tutti i videogame presenti nel file binario, popolando l'array fornito e aggiornando il contatore.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">all_games</td><td>Array di destinazione per i videogame letti </td></tr>
@@ -365,7 +359,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Legge le recensioni di un videogame specifico. </p>
-<p>Carica in memoria tutte le recensioni associate a un determinato videogame, filtrando per videogame_id.</p>
+<p>Legge tutte le recensioni associate a un determinato videogame, filtrando per videogame_id.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reviews</td><td>Array di destinazione per le recensioni lette </td></tr>
